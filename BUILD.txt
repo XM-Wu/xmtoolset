@@ -1,0 +1,10 @@
+三个独立小应用：image-converter / video-converter / dot-pattern
+版本分别在 apps.json 管理。独立入口：<tool-id>.py；源码启动：start-<tool-id>.cmd。
+每个应用拥有独立设置和开机启动注册项；旧工具集的设置不删除、不自动迁移。
+main_app.py 仅保留为源码开发预览入口，不再发布工具集整包。
+构建全部：powershell -File build.ps1
+单独构建：powershell -File build.ps1 -Tool image-converter
+产物：artifacts/<tool-id>/<version>/，含独立 EXE、ZIP、SHA256 清单、自检报告与截图。
+每个包经过移动位置与实际 ZIP 解压后的两轮自检；无需系统 Python。
+自动备份和目录归档已移除，历史文件与设置保留；历史构建包不自动删除。
+签名目录和远程上传尚未接入，本脚本不会发布版本。

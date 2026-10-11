@@ -1,0 +1,16 @@
+---
+description: 修改代码后必须重启托盘中的 Py 工具集
+alwaysApply: true
+---
+
+# 改完即重启
+
+本应用常驻系统托盘（`pythonw main_app.py`），改代码不会自动生效。
+
+每次改完并准备让用户查看时：
+
+1. 结束已有的 `main_app.py` 进程（`pythonw.exe` / `python.exe`，命令行含 `xmtoolset\main_app.py`）。不要结束 jedi / language server。
+2. 用同一解释器重新启动：
+   `C:\Users\xm\AppData\Local\Programs\Python\Python313\pythonw.exe` + `D:\Projects\xmtoolset\main_app.py`
+   也可执行项目根目录的 `start.bat`。
+3. 确认新进程已起来后再结束本轮。

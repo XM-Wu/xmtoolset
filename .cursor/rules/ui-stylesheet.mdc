@@ -1,0 +1,35 @@
+---
+description: UI 样式表统一由 main_app 设置，业务代码禁止写样式
+alwaysApply: true
+---
+
+# UI 样式表规范
+
+## 唯一入口
+
+- 全局样式（QSS + Palette）只通过 `app/theme.py` 的 `apply_dark_theme()` 定义。
+- `main_app.py` 在创建 `QApplication` 后、创建窗口前调用 `apply_dark_theme(app)`。
+- **禁止**在窗口 / 工具 / 控件逻辑里调用 `setStyleSheet()`。
+
+## 业务代码怎么挂样式
+
+- 用 `setObjectName("...")` 绑定主题里已有的选择器（如 `pageTitle`、`mutedLabel`、`primaryButton`、`sidebar`）。
+- 需要状态样式时用 `setProperty("inactive", True/False)`，然后 `style().unpolish/polish` + `update()`。
+- 新增视觉效果：改 `app/theme.py`，不要在 widget 文件里内联 CSS。
+
+## 反例 / 正例
+
+```python
+# ❌ BAD — 样式散落在逻辑中
+label.setStyleSheet("color: #a6adc8;")
+sidebar.setStyleSheet("QFrame { background: #181825; }")
+
+# ✅ GOOD — 只挂名，样式在 theme.py
+label.setObjectName("mutedLabel")
+sidebar.setObjectName("sidebar")
+```
+
+## QSlider
+
+- 全局 QSS 中 **禁止** 对 `QSlider` 使用 `opacity`（禁用后再启用会出现无法拖动）。
+- PNG 等“质量无效”场景用 `inactive` 属性灰显，不要靠反复 `setEnabled(False/True)` 表达格式无关。
