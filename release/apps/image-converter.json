@@ -1,0 +1,28 @@
+{
+  "package": {
+    "schemaVersion": 1,
+    "toolId": "image-converter",
+    "version": "0.1.3",
+    "platform": "win-x64",
+    "packageFile": "image-converter-0.1.3-win-x64.zip",
+    "size": 68024324,
+    "sha256": "a97d214caf993fb4f4a33d6ba539e75579e9330b7cf28f921dbd68de05e73f46",
+    "entryPoint": "XMImageConverter.exe",
+    "minimumLauncherVersion": "0.1.0",
+    "runtimeMode": "self-contained",
+    "dataSchemaVersion": 1
+  },
+  "commit": "1a851fb3552da950280a6fc2fccb473ba2e11107",
+  "path": "artifacts/image-converter/0.1.3/image-converter-0.1.3-win-x64.zip",
+  "baidu": {
+    "fsId": 689680898836907,
+    "path": "/apps/XArchieve/App/image-converter/0.1.3/image-converter-0.1.3-win-x64.zip"
+  },
+  "metadata": {
+    "name": "\u56FE\u7247\u8F6C\u6362",
+    "description": "\u5728 PNG\u3001JPEG\u3001WebP\u3001AVIF \u7B49\u683C\u5F0F\u4E4B\u95F4\u6279\u91CF\u8F6C\u6362\u56FE\u7247\u3002",
+    "category": "small",
+    "releaseNotes": "\u79FB\u9664\u4FA7\u8FB9\u680F\u3001\u6258\u76D8\u548C\u5F00\u673A\u81EA\u542F\u52A8\uFF0C\u529F\u80FD\u9762\u677F\u5360\u6EE1\u7A97\u53E3\u3002",
+    "publishedUtc": "2026-10-11T14:55:06.6600472+00:00"
+  }
+}

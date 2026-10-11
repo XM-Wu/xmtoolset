@@ -1,0 +1,28 @@
+{
+  "package": {
+    "schemaVersion": 1,
+    "toolId": "video-converter",
+    "version": "0.1.3",
+    "platform": "win-x64",
+    "packageFile": "video-converter-0.1.3-win-x64.zip",
+    "size": 89402129,
+    "sha256": "6f2f696869dcee3c208a82740c76eabdb5f46b14aec696c4cc11bdd3c63b85ba",
+    "entryPoint": "XMVideoConverter.exe",
+    "minimumLauncherVersion": "0.1.0",
+    "runtimeMode": "self-contained",
+    "dataSchemaVersion": 1
+  },
+  "commit": "1a851fb3552da950280a6fc2fccb473ba2e11107",
+  "path": "artifacts/video-converter/0.1.3/video-converter-0.1.3-win-x64.zip",
+  "baidu": {
+    "fsId": 51732582641109,
+    "path": "/apps/XArchieve/App/video-converter/0.1.3/video-converter-0.1.3-win-x64.zip"
+  },
+  "metadata": {
+    "name": "\u89C6\u9891\u8F6C\u6362",
+    "description": "\u4F7F\u7528\u5185\u7F6E FFmpeg \u6279\u91CF\u8F6C\u6362\u89C6\u9891\u683C\u5F0F\u3002",
+    "category": "small",
+    "releaseNotes": "\u79FB\u9664\u4FA7\u8FB9\u680F\u3001\u6258\u76D8\u548C\u5F00\u673A\u81EA\u542F\u52A8\uFF0C\u529F\u80FD\u9762\u677F\u5360\u6EE1\u7A97\u53E3\u3002",
+    "publishedUtc": "2026-10-11T14:55:39.0399401+00:00"
+  }
+}

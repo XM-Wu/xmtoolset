@@ -48,3 +48,6 @@ artifacts/xm-model/**
 !artifacts/xm-model/*/*.zip
 !artifacts/xm-model/*/*.json
 !artifacts/xm-model/*/*.png
+
+# Installation archives are published to Baidu XArchieve/App, not Git.
+artifacts/**/*.zip

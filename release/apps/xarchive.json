@@ -1,0 +1,28 @@
+{
+  "package": {
+    "schemaVersion": 1,
+    "toolId": "xarchive",
+    "version": "1.21.0",
+    "platform": "win-x64",
+    "packageFile": "xarchive-1.21.0-win-x64.zip",
+    "size": 75998308,
+    "sha256": "fe106f075acad6b0f985a3caf569a2d9dde883821b3032e8ed472b131b3eddb4",
+    "entryPoint": "ArchiveTool.exe",
+    "minimumLauncherVersion": "0.2.0",
+    "runtimeMode": "self-contained",
+    "dataSchemaVersion": 1
+  },
+  "commit": "1a851fb3552da950280a6fc2fccb473ba2e11107",
+  "path": "artifacts/xarchive/1.21.0/xarchive-1.21.0-win-x64.zip",
+  "baidu": {
+    "fsId": 428855406376100,
+    "path": "/apps/XArchieve/App/xarchive/1.21.0/xarchive-1.21.0-win-x64.zip"
+  },
+  "metadata": {
+    "name": "XArchieve",
+    "description": "\u76EE\u5F55\u5F52\u6863\u3001\u4E91\u7AEF\u5907\u4EFD\u4E0E\u672C\u5730\u7A7A\u95F4\u7BA1\u7406\u3002",
+    "category": "large",
+    "releaseNotes": "\u63A5\u5165\u767E\u5EA6\u7F51\u76D8\u5B89\u88C5\u5305\u5206\u53D1\u3002",
+    "publishedUtc": "2026-10-11T14:56:33.9136994+00:00"
+  }
+}
