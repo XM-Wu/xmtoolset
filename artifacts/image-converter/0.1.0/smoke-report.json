@@ -1,0 +1,19 @@
+{
+  "success": true,
+  "frozen": true,
+  "checks": [
+    "product settings are isolated",
+    "only product and settings pages load",
+    "auto backup modules are not imported",
+    "UI screenshot rendered",
+    "bundled stylesheet SVG is present",
+    "frozen autostart targets the executable",
+    "PNG conversion and decoding",
+    "JPEG conversion and decoding",
+    "WEBP conversion and decoding",
+    "AVIF conversion and decoding",
+    "retired jobs remain inert"
+  ],
+  "version": "0.1.0",
+  "toolId": "image-converter"
+}

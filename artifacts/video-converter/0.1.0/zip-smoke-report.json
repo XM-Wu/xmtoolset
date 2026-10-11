@@ -1,0 +1,17 @@
+{
+  "success": true,
+  "frozen": true,
+  "checks": [
+    "product settings are isolated",
+    "only product and settings pages load",
+    "auto backup modules are not imported",
+    "UI screenshot rendered",
+    "bundled stylesheet SVG is present",
+    "frozen autostart targets the executable",
+    "FFmpeg comes from the package, not system PATH",
+    "bundled FFmpeg video conversion",
+    "retired jobs remain inert"
+  ],
+  "version": "0.1.0",
+  "toolId": "video-converter"
+}
