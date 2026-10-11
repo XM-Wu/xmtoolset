@@ -45,11 +45,9 @@ def run(report: Path) -> int:
                 window = MainWindow(diagnostic=True)
                 window.setAttribute(Qt.WA_DontShowOnScreen, True)
                 window.show()
-                for index in range(window.stack.count()):
-                    window.nav.setCurrentRow(index);app.processEvents()
-                check(window.stack.count() == 1 and window._tools[0].tool_id == product.MODULE, 'only product page loads')
+                app.processEvents()
+                check(window.centralWidget().tool_id == product.MODULE, 'product panel is the central widget')
                 check(not any(name.startswith(('app.tools.auto_backup','app.tools.archive')) for name in sys.modules), 'auto backup modules are not imported')
-                window.nav.setCurrentRow(0);app.processEvents()
                 check(window.grab().save(str(report.with_suffix('.png'))), 'UI screenshot rendered')
                 from PySide6.QtWidgets import QSystemTrayIcon
                 check(not window.findChildren(QSystemTrayIcon), 'no tray icon')

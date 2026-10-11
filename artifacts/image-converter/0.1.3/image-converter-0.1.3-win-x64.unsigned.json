@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "toolId": "image-converter",
+  "version": "0.1.3",
+  "platform": "win-x64",
+  "packageFile": "image-converter-0.1.3-win-x64.zip",
+  "size": 68024324,
+  "sha256": "a97d214caf993fb4f4a33d6ba539e75579e9330b7cf28f921dbd68de05e73f46",
+  "entryPoint": "XMImageConverter.exe",
+  "minimumLauncherVersion": "0.1.0",
+  "runtimeMode": "self-contained",
+  "dataSchemaVersion": 1
+}

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "toolId": "video-converter",
+  "version": "0.1.3",
+  "platform": "win-x64",
+  "packageFile": "video-converter-0.1.3-win-x64.zip",
+  "size": 89402129,
+  "sha256": "6f2f696869dcee3c208a82740c76eabdb5f46b14aec696c4cc11bdd3c63b85ba",
+  "entryPoint": "XMVideoConverter.exe",
+  "minimumLauncherVersion": "0.1.0",
+  "runtimeMode": "self-contained",
+  "dataSchemaVersion": 1
+}

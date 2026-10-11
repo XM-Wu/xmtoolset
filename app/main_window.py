@@ -1,21 +1,10 @@
-"""主窗口：左侧工具导航 + 右侧工具面板。"""
+"""独立小应用窗口：功能面板直接占满窗口。"""
 
 from __future__ import annotations
 
-from PySide6.QtCore import Qt, QTimer
+from PySide6.QtCore import QTimer
 from PySide6.QtGui import QCloseEvent, QMoveEvent, QResizeEvent
-from PySide6.QtWidgets import (
-    QApplication,
-    QFrame,
-    QHBoxLayout,
-    QLabel,
-    QListWidget,
-    QListWidgetItem,
-    QMainWindow,
-    QStackedWidget,
-    QVBoxLayout,
-    QWidget,
-)
+from PySide6.QtWidgets import QApplication, QMainWindow
 
 from app import config
 from app.tools import load_tools
@@ -39,50 +28,9 @@ class MainWindow(QMainWindow):
         if not self.restoreGeometry(config.get_window_geometry()):
             self.resize(960, 680)
 
-        central = QWidget()
-        self.setCentralWidget(central)
-        layout = QHBoxLayout(central)
-        layout.setContentsMargins(0, 0, 0, 0)
-        layout.setSpacing(0)
-
-        sidebar = QFrame()
-        sidebar.setObjectName("sidebar")
-        sidebar.setFixedWidth(220)
-        side_layout = QVBoxLayout(sidebar)
-        side_layout.setContentsMargins(0, 0, 0, 0)
-        side_layout.setSpacing(0)
-
-        title = QLabel(product.NAME)
-        title.setObjectName("appTitle")
-        subtitle = QLabel("独立小应用" if product.TOOL_ID else "实用小工具集合")
-        subtitle.setObjectName("appSubtitle")
-        side_layout.addWidget(title)
-        side_layout.addWidget(subtitle)
-
-        self.nav = QListWidget()
-        self.nav.setObjectName("navList")
-        self.nav.setFocusPolicy(Qt.NoFocus)
-        side_layout.addWidget(self.nav, stretch=1)
-
-        layout.addWidget(sidebar)
-
-        self.stack = QStackedWidget()
-        self.stack.setObjectName("contentStack")
-        layout.addWidget(self.stack, stretch=1)
-
-        self._tools = []
-        for tool_cls in load_tools():
-            tool = tool_cls()
-            self._tools.append(tool)
-            item = QListWidgetItem(tool.tool_name)
-            item.setToolTip(tool.tool_description)
-            self.nav.addItem(item)
-            self.stack.addWidget(tool)
-
-        if self.nav.count() > 0:
-            self.nav.setCurrentRow(0)
-
-        self.nav.currentRowChanged.connect(self.stack.setCurrentIndex)
+        tool_cls, = load_tools()
+        self.tool = tool_cls()
+        self.setCentralWidget(self.tool)
 
     def _save_geometry(self) -> None:
         if self.isMinimized():
