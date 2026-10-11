@@ -3,7 +3,7 @@
 
 import sys
 
-from PySide6.QtWidgets import QApplication, QSystemTrayIcon
+from PySide6.QtWidgets import QApplication
 
 from app.main_window import MainWindow
 from app.theme import apply_dark_theme
@@ -25,9 +25,13 @@ def main() -> int:
     from app import product
     app.setApplicationName(product.NAME)
     app.setOrganizationName("py_tools")
-    # 关闭主窗口（隐藏到托盘）时不要退出进程
-    if QSystemTrayIcon.isSystemTrayAvailable():
-        app.setQuitOnLastWindowClosed(False)
+    app.setQuitOnLastWindowClosed(True)
+    from app.config import retire_legacy_startup
+    try:
+        retire_legacy_startup()
+    except OSError as exc:
+        import logging
+        logging.warning("旧版开机启动项清理失败：%s", exc)
     apply_dark_theme(app)
 
     window = MainWindow()

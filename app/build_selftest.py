@@ -35,9 +35,7 @@ def run(report: Path) -> int:
         with tempfile.TemporaryDirectory(prefix='py-tools-selftest-') as tmp:
             data = Path(tmp)
             isolated = QSettings(str(data/'settings.ini'), QSettings.IniFormat)
-            def deny_startup_write(*args, **kwargs):
-                raise AssertionError('Self-test must not write Windows startup settings')
-            with patch.object(config, 'settings', return_value=isolated), patch.object(config, 'is_autostart_enabled', return_value=False), patch.object(config, 'enable_autostart', side_effect=deny_startup_write), patch.object(config, 'disable_autostart', side_effect=deny_startup_write):
+            with patch.object(config, 'settings', return_value=isolated):
                 check(config._APP == product.TOOL_ID, 'product settings are isolated')
                 legacy_source=data/'legacy-source';legacy_source.mkdir();(legacy_source/'keep.txt').write_text('preserve',encoding='utf-8')
                 legacy_target=data/'legacy-target'
@@ -49,14 +47,17 @@ def run(report: Path) -> int:
                 window.show()
                 for index in range(window.stack.count()):
                     window.nav.setCurrentRow(index);app.processEvents()
-                check(window.stack.count() == 2 and window._tools[0].tool_id == product.MODULE, 'only product and settings pages load')
+                check(window.stack.count() == 1 and window._tools[0].tool_id == product.MODULE, 'only product page loads')
                 check(not any(name.startswith(('app.tools.auto_backup','app.tools.archive')) for name in sys.modules), 'auto backup modules are not imported')
                 window.nav.setCurrentRow(0);app.processEvents()
                 check(window.grab().save(str(report.with_suffix('.png'))), 'UI screenshot rendered')
-                window._geom_timer.stop();window._force_quit = True;window.close();app.processEvents()
+                from PySide6.QtWidgets import QSystemTrayIcon
+                check(not window.findChildren(QSystemTrayIcon), 'no tray icon')
+                window.showMinimized();app.processEvents()
+                check(window.isVisible() and window.isMinimized(), 'minimize remains on taskbar')
+                window.showNormal();window.close();app.processEvents()
+                check(not window.isVisible(), 'close hides window for application exit')
                 check(Path(_CHECK_ICON).is_file(), 'bundled stylesheet SVG is present')
-                if getattr(sys, 'frozen', False):
-                    check(config.autostart_command() == f'"{Path(sys.executable)}"', 'frozen autostart targets the executable')
                 if product.MODULE=='image_converter':
                     from PIL import Image
                     from app.tools.image_converter import convert_image

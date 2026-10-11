@@ -1,0 +1,21 @@
+{
+  "success": true,
+  "frozen": true,
+  "checks": [
+    "product settings are isolated",
+    "only product page loads",
+    "auto backup modules are not imported",
+    "UI screenshot rendered",
+    "no tray icon",
+    "minimize remains on taskbar",
+    "close hides window for application exit",
+    "bundled stylesheet SVG is present",
+    "PNG conversion and decoding",
+    "JPEG conversion and decoding",
+    "WEBP conversion and decoding",
+    "AVIF conversion and decoding",
+    "retired jobs remain inert"
+  ],
+  "version": "0.1.2",
+  "toolId": "image-converter"
+}

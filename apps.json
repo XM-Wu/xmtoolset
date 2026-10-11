@@ -4,20 +4,20 @@
     "exe": "XMImageConverter",
     "module": "image_converter",
     "class": "ImageConverterTool",
-    "version": "0.1.1"
+    "version": "0.1.2"
   },
   "video-converter": {
     "name": "视频转换",
     "exe": "XMVideoConverter",
     "module": "video_converter",
     "class": "VideoConverterTool",
-    "version": "0.1.1"
+    "version": "0.1.2"
   },
   "dot-pattern": {
     "name": "波点图案",
     "exe": "XMDotPattern",
     "module": "dot_pattern",
     "class": "DotPatternTool",
-    "version": "0.1.1"
+    "version": "0.1.2"
   }
 }

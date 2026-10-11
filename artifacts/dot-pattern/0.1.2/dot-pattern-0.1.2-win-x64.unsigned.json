@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "toolId": "dot-pattern",
+  "version": "0.1.2",
+  "platform": "win-x64",
+  "packageFile": "dot-pattern-0.1.2-win-x64.zip",
+  "size": 58155029,
+  "sha256": "1bc2c956b0562f7dd90b250a0e3a4ecfa0a61461f785985f7f0ee701a7137cb3",
+  "entryPoint": "XMDotPattern.exe",
+  "minimumLauncherVersion": "0.1.0",
+  "runtimeMode": "self-contained",
+  "dataSchemaVersion": 1
+}

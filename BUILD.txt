@@ -1,6 +1,6 @@
 三个独立小应用：image-converter / video-converter / dot-pattern
 版本分别在 apps.json 管理。独立入口：<tool-id>.py；源码启动：start-<tool-id>.cmd。
-每个应用拥有独立设置和开机启动注册项；旧工具集的设置不删除、不自动迁移。
+每个应用拥有独立设置；不提供开机启动或托盘功能。最小化保留在任务栏，关闭窗口退出。新版首次启动清理对应小应用的旧自启动项；其他设置保留。
 旧工具集入口已移除；三个独立入口共用 app/runtime.py。
 构建全部：powershell -File build.ps1
 单独构建：powershell -File build.ps1 -Tool image-converter
