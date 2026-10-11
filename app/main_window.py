@@ -19,7 +19,6 @@ from PySide6.QtWidgets import (
 )
 
 from app import config
-from app.version import __version__
 from app.tools import load_tools
 from app import product
 from app.tray import TrayController

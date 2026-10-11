@@ -1,0 +1,25 @@
+{
+  "toolId": "dot-pattern",
+  "version": "0.1.1",
+  "python": "3.13.0",
+  "packages": {
+    "altgraph": "0.17.4",
+    "imageio-ffmpeg": "0.6.0",
+    "packaging": "25.0",
+    "pefile": "2023.2.7",
+    "pillow": "11.3.0",
+    "pillow-avif-plugin": "1.5.5",
+    "pyinstaller": "6.15.0",
+    "pyinstaller-hooks-contrib": "2025.8",
+    "PySide6": "6.9.1",
+    "PySide6_Addons": "6.9.1",
+    "PySide6_Essentials": "6.9.1",
+    "pywin32-ctypes": "0.2.3",
+    "setuptools": "80.9.0",
+    "shiboken6": "6.9.1"
+  },
+  "package": "dot-pattern-0.1.1-win-x64.zip",
+  "sha256": "616bb6f95d52a827445e313ea171984ac9528a6d20cc55eeda690cd9a26966f8",
+  "uploaded": false,
+  "signed": false
+}

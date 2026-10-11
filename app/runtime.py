@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Py 工具集入口。"""
+"""Shared runtime for independent applications; select an identity before calling main."""
 
 import sys
 
@@ -20,7 +20,6 @@ def main() -> int:
         args = parser.parse_args()
         return run(args.report)
     app = QApplication(sys.argv)
-    from app.version import __version__
     from app import product
     app.setApplicationVersion(product.VERSION)
     from app import product

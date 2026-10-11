@@ -10,8 +10,8 @@ from PySide6.QtCore import QByteArray, QSettings
 # 与 main_app 中 Organization / Application 名称保持一致
 _ORG = "py_tools"
 from app import product
-_APP = product.TOOL_ID or "Py 工具集"
-_AUTOSTART_NAME = product.TOOL_ID or "PyTools"
+_APP = product.TOOL_ID
+_AUTOSTART_NAME = product.TOOL_ID
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 START_BAT = PROJECT_ROOT / "start.bat"
@@ -98,8 +98,6 @@ def autostart_command() -> str:
     pythonw = _resolve_pythonw()
     if pythonw is not None and script.is_file():
         return f'"{pythonw}" "{script}"'
-    if START_BAT.is_file():
-        return f'"{START_BAT}"'
     raise FileNotFoundError("未找到 Python 解释器或 start.bat，无法设置开机启动。")
 
 

@@ -5,8 +5,10 @@ import subprocess
 import json
 from unittest.mock import patch
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
+from app import product
+product.select("image-converter","图片转换","0.1.1","image-converter.py","image_converter")
 from app import config
-from app.version import __version__
+
 
 class RuntimeTests(unittest.TestCase):
     def test_frozen_startup_does_not_depend_on_source_or_python(self):
@@ -15,7 +17,7 @@ class RuntimeTests(unittest.TestCase):
     def test_source_mode_preserved(self):
         with patch.object(sys,'frozen',False,create=True):
             command=config.autostart_command()
-            self.assertTrue('main_app.py' in command or 'start.bat' in command)
+            self.assertTrue('image-converter.py' in command)
     def test_independent_product_settings_versions_and_startup(self):
         root=Path(__file__).resolve().parents[1]
         products=json.loads((root/'apps.json').read_text(encoding='utf-8'))
@@ -30,6 +32,6 @@ class RuntimeTests(unittest.TestCase):
         self.assertEqual(len(set(settings_paths)),3)
 
     def test_version_is_release_triplet(self):
-        self.assertRegex(__version__,r'^\d+\.\d+\.\d+$')
+        self.assertRegex(product.VERSION,r'^\d+\.\d+\.\d+$')
 
 if __name__=='__main__':unittest.main()

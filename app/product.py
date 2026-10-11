@@ -1,8 +1,8 @@
 """Process-local identity, selected before importing widgets or settings."""
 TOOL_ID = None
-NAME = "Py 工具集"
-VERSION = "0.2.0"
-ENTRY = "main_app.py"
+NAME = "XM 小应用"
+VERSION = ""
+ENTRY = ""
 MODULE = None
 
 def select(tool_id, name, version, entry, module):

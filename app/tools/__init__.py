@@ -4,5 +4,7 @@ from app import product
 from app.tools.settings.widget import SettingsTool
 
 def load_tools():
+    if product.MODULE is None:
+        raise RuntimeError("Use an independent application entry point.")
     definitions = [('image_converter','ImageConverterTool'), ('video_converter','VideoConverterTool'), ('dot_pattern','DotPatternTool')]
-    return [getattr(import_module('app.tools.'+module+'.widget'), cls) for module,cls in definitions if product.MODULE is None or product.MODULE == module] + [SettingsTool]
+    return [getattr(import_module('app.tools.'+module+'.widget'), cls) for module,cls in definitions if product.MODULE == module] + [SettingsTool]

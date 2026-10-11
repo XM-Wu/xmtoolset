@@ -24,7 +24,6 @@ def run(report: Path) -> int:
         from PySide6.QtWidgets import QApplication
         from app import product
         from app import config
-        from app.version import __version__
         from app.theme import apply_dark_theme, _CHECK_ICON
         from app.main_window import MainWindow
 

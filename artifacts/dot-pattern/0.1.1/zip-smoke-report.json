@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "frozen": true,
+  "checks": [
+    "product settings are isolated",
+    "only product and settings pages load",
+    "auto backup modules are not imported",
+    "UI screenshot rendered",
+    "bundled stylesheet SVG is present",
+    "frozen autostart targets the executable",
+    "dot pattern renders and exports PNG",
+    "retired jobs remain inert"
+  ],
+  "version": "0.1.1",
+  "toolId": "dot-pattern"
+}

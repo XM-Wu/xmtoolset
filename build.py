@@ -17,14 +17,6 @@ import zipfile
 
 ROOT=Path(__file__).resolve().parent
 
-def legacy_version():
-    tree=ast.parse((ROOT/'app'/'version.py').read_text(encoding='utf-8'))
-    for node in tree.body:
-        if isinstance(node,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='__version__' for t in node.targets):
-            value=ast.literal_eval(node.value)
-            if re.fullmatch(r'(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)',value):return value
-    raise ValueError('Invalid app/version.py')
-
 def dependencies():
     packages={}
     for line in (ROOT/'requirements-build.lock.txt').read_text(encoding='utf-8').splitlines():
@@ -59,8 +51,7 @@ def build(output: Path, tool_id: str):
     # The unique owned temporary directory contains only build inputs and generated files.
     with tempfile.TemporaryDirectory(prefix='py-tools-build-') as temporary:
         work=Path(temporary).resolve();source=work/'source';source.mkdir()
-        shutil.copy2(ROOT/'main_app.py',source/'main_app.py')
-        (source/(tool_id+'.py')).write_text(f"from app import product\nproduct.select({tool_id!r}, {product['name']!r}, {release_version!r}, {tool_id+'.py'!r}, {product['module']!r})\nfrom main_app import main\nif __name__ == '__main__':\n    raise SystemExit(main())\n",encoding='utf-8')
+        (source/(tool_id+'.py')).write_text(f"from app import product\nproduct.select({tool_id!r}, {product['name']!r}, {release_version!r}, {tool_id+'.py'!r}, {product['module']!r})\nfrom app.runtime import main\nif __name__ == '__main__':\n    raise SystemExit(main())\n",encoding='utf-8')
         shutil.copytree(ROOT/'app',source/'app',ignore=shutil.ignore_patterns('__pycache__','*.pyc'))
         for sibling in ('image_converter','video_converter','dot_pattern'):
             if sibling != product['module']:
@@ -73,7 +64,7 @@ def build(output: Path, tool_id: str):
         env=os.environ.copy();env['PYTOOLS_BUILD_SOURCE']=str(source);env['PYTOOLS_BUILD_META']=str(work)
         env['PYTOOLS_PRODUCT']=json.dumps(dict(product, id=tool_id));env['PYTHONPATH']=str(source);env['PYINSTALLER_CONFIG_DIR']=str(work/'pyinstaller-cache')
         subprocess.run([sys.executable,'-m','PyInstaller','--noconfirm','--clean','--distpath',str(work/'dist'),
-            '--workpath',str(work/'pyinstaller'),str(ROOT/'pack'/'PyTools.spec')],cwd=source,env=env,check=True)
+            '--workpath',str(work/'pyinstaller'),str(ROOT/'pack'/'SmallApp.spec')],cwd=source,env=env,check=True)
         bundle=work/'dist'/executable
         (bundle/'VERSION').write_text(release_version+'\n',encoding='utf-8')
         license_root=bundle/'THIRD_PARTY';license_root.mkdir()
