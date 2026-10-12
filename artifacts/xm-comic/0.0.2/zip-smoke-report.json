@@ -1,0 +1,15 @@
+{
+  "success": true,
+  "frozen": true,
+  "version": "0.0.2",
+  "toolId": "xm-comic",
+  "checks": [
+    "isolated resource database",
+    "SQLite create item",
+    "Qt image codec",
+    "bundled icons and theme",
+    "archive Unicode extraction",
+    "bundled 7-Zip",
+    "window screenshot"
+  ]
+}

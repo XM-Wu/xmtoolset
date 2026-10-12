@@ -1,0 +1,13 @@
+{
+  "toolId": "xm-model",
+  "version": "0.0.2",
+  "source": "D:\\Projects\\XMLauncher\\artifacts\\library-release\\432887545e354b5999e96d20dd28c953\\source\\xm-model",
+  "python": "3.13.0 (tags/v3.13.0:60403a5, Oct  7 2024, 09:38:07) [MSC v.1941 64 bit (AMD64)]",
+  "signed": false,
+  "packages": {
+    "PySide6": "6.9.1",
+    "PyInstaller": "6.15.0",
+    "pypinyin": "0.55.0",
+    "usd-core": "26.8"
+  }
+}
