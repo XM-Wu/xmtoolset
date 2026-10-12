@@ -1,0 +1,18 @@
+{
+  "success": true,
+  "frozen": true,
+  "version": "0.0.3",
+  "toolId": "xm-model",
+  "checks": [
+    "isolated resource database",
+    "SQLite create item",
+    "Qt image codec",
+    "bundled icons and theme",
+    "archive Unicode extraction",
+    "bundled 7-Zip",
+    "OBJ mesh load",
+    "native USD binary load",
+    "model shaders deserialize",
+    "window screenshot"
+  ]
+}
