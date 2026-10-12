@@ -12,7 +12,7 @@
     "runtimeMode": "self-contained",
     "dataSchemaVersion": 1
   },
-  "commit": "83d553745d371c97dfd587d5d1ff47249ca1f9aa",
+  "commit": "0fbcdd34d92ae508e8fbd2d2515a7729fa184e2a",
   "path": "artifacts/video-converter/0.1.3/video-converter-0.1.3-win-x64.zip",
   "baidu": {
     "fsId": 51732582641109,
@@ -23,6 +23,6 @@
     "description": "\u4F7F\u7528\u5185\u7F6E FFmpeg \u6279\u91CF\u8F6C\u6362\u89C6\u9891\u683C\u5F0F\u3002",
     "category": "small",
     "releaseNotes": "\u79FB\u9664\u4FA7\u8FB9\u680F\u3001\u6258\u76D8\u548C\u5F00\u673A\u81EA\u542F\u52A8\uFF0C\u529F\u80FD\u9762\u677F\u5360\u6EE1\u7A97\u53E3\u3002",
-    "publishedUtc": "2026-10-12T00:44:34.2608161+00:00"
+    "publishedUtc": "2026-10-12T00:49:38.265752+00:00"
   }
 }

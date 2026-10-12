@@ -12,7 +12,7 @@
     "runtimeMode": "self-contained",
     "dataSchemaVersion": 1
   },
-  "commit": "83d553745d371c97dfd587d5d1ff47249ca1f9aa",
+  "commit": "0fbcdd34d92ae508e8fbd2d2515a7729fa184e2a",
   "path": "artifacts/xarchive/1.21.0/xarchive-1.21.0-win-x64.zip",
   "baidu": {
     "fsId": 428855406376100,
@@ -23,6 +23,6 @@
     "description": "\u76EE\u5F55\u5F52\u6863\u3001\u4E91\u7AEF\u5907\u4EFD\u4E0E\u672C\u5730\u7A7A\u95F4\u7BA1\u7406\u3002",
     "category": "large",
     "releaseNotes": "\u63A5\u5165\u767E\u5EA6\u7F51\u76D8\u5B89\u88C5\u5305\u5206\u53D1\u3002",
-    "publishedUtc": "2026-10-12T00:44:40.4549477+00:00"
+    "publishedUtc": "2026-10-12T00:49:44.2151988+00:00"
   }
 }

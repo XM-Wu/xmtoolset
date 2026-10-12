@@ -12,7 +12,7 @@
     "runtimeMode": "self-contained",
     "dataSchemaVersion": 1
   },
-  "commit": "83d553745d371c97dfd587d5d1ff47249ca1f9aa",
+  "commit": "0fbcdd34d92ae508e8fbd2d2515a7729fa184e2a",
   "path": "artifacts/xm-comic/0.0.2/xm-comic-0.0.2-win-x64.zip",
   "baidu": {
     "fsId": 978668430173581,
@@ -23,6 +23,6 @@
     "description": "\u7BA1\u7406\u6F2B\u753B\u8D44\u6E90\u5E93\uFF0C\u6D4F\u89C8\u5C01\u9762\u4E0E\u9605\u8BFB\u56FE\u7247\u3002",
     "category": "large",
     "releaseNotes": "\u66F4\u65B0\u81F3 0.0.2\uFF0C\u5305\u542B\u6700\u65B0\u529F\u80FD\u4E0E\u4FEE\u590D\u3002",
-    "publishedUtc": "2026-10-12T00:45:04.3476207+00:00"
+    "publishedUtc": "2026-10-12T00:49:47.3738474+00:00"
   }
 }
