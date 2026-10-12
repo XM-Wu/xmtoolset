@@ -1,14 +1,14 @@
-﻿{
-    "xarchive":  {
-                     "version":  "1.21.0",
-                     "exe":  "ArchiveTool.exe"
-                 },
-    "xm-comic":  {
-                     "version":  "0.0.2",
-                     "exe":  "XM Comic Library.exe"
-                 },
-    "xm-model":  {
-                     "version":  "0.0.4",
-                     "exe":  "XM Model Library.exe"
-                 }
+{
+  "xarchive": {
+    "exe": "ArchiveTool.exe",
+    "version": "1.22.0"
+  },
+  "xm-comic": {
+    "version": "0.0.2",
+    "exe": "XM Comic Library.exe"
+  },
+  "xm-model": {
+    "version": "0.0.4",
+    "exe": "XM Model Library.exe"
+  }
 }

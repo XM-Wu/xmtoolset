@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "toolId": "xarchive",
+  "version": "1.22.0",
+  "platform": "win-x64",
+  "packageFile": "xarchive-1.22.0-win-x64.zip",
+  "size": 75999436,
+  "sha256": "4f0de20617c7a07efe0635d58a3219f356bb0a61ae5afaaa097219a37e0db322",
+  "entryPoint": "ArchiveTool.exe",
+  "minimumLauncherVersion": "0.2.0",
+  "runtimeMode": "self-contained",
+  "dataSchemaVersion": 1
+}
