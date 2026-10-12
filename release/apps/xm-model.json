@@ -12,7 +12,7 @@
     "runtimeMode": "self-contained",
     "dataSchemaVersion": 1
   },
-  "commit": "6c5ec7d8bffbb5d63d116a9821edf51c0aae1cdd",
+  "commit": "30fd4ae08b70ee313082c407c2de9164f003af75",
   "path": "artifacts/xm-model/0.0.4/xm-model-0.0.4-win-x64.zip",
   "baidu": {
     "fsId": 1042236173663712,
@@ -23,6 +23,6 @@
     "description": "\u7BA1\u7406\u4E0E\u9884\u89C8\u4E09\u7EF4\u6A21\u578B\uFF0C\u652F\u6301 OBJ \u548C USD\u3002",
     "category": "large",
     "releaseNotes": "\u8FDB\u4E00\u6B65\u4F18\u5316\u542F\u52A8\u5217\u8868\uFF1A\u6574\u6279\u53EA\u89E3\u6790\u4E00\u6B21\u8D44\u6E90\u5E93\u76EE\u5F55\uFF0C\u590D\u7528\u5C01\u9762\u8DEF\u5F84\uFF0C\u907F\u514D\u6BCF\u5F20\u5361\u7247\u91CD\u590D\u8BFB\u53D6\u8BBE\u7F6E\u548C\u521B\u5EFA\u76EE\u5F55\u3002",
-    "publishedUtc": "2026-10-12T01:03:45.6363768+00:00"
+    "publishedUtc": "2026-10-12T01:05:55.3700727+00:00"
   }
 }
