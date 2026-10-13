@@ -2,27 +2,27 @@
   "package": {
     "schemaVersion": 1,
     "toolId": "dot-pattern",
-    "version": "0.1.3",
+    "version": "0.2.1",
     "platform": "win-x64",
-    "packageFile": "dot-pattern-0.1.3-win-x64.zip",
-    "size": 58153156,
-    "sha256": "9150b94c3a544a9d942e77567d0b17f418556d12b7c05f5786caced51e1e7749",
-    "entryPoint": "XMDotPattern.exe",
+    "packageFile": "dot-pattern-0.2.1-win-x64.zip",
+    "size": 59318505,
+    "sha256": "bcbe8b31b91c4fac5ec82ee86aa36f196f5cded1178cf032375dd9e16f199d6a",
+    "entryPoint": "XMGraphicsGenerator.exe",
     "minimumLauncherVersion": "0.1.0",
     "runtimeMode": "self-contained",
     "dataSchemaVersion": 1
   },
-  "commit": "30fd4ae08b70ee313082c407c2de9164f003af75",
-  "path": "artifacts/dot-pattern/0.1.3/dot-pattern-0.1.3-win-x64.zip",
+  "commit": "b79421d8caf8ddb6e05f8b86684d8bf47724e5d0",
+  "path": "artifacts/dot-pattern/0.2.1/dot-pattern-0.2.1-win-x64.zip",
   "baidu": {
-    "fsId": 881965167354761,
-    "path": "/apps/XArchieve/App/dot-pattern/0.1.3/dot-pattern-0.1.3-win-x64.zip"
+    "fsId": 397378630115922,
+    "path": "/apps/XArchieve/App/dot-pattern/0.2.1/dot-pattern-0.2.1-win-x64.zip"
   },
   "metadata": {
-    "name": "\u6CE2\u70B9\u56FE\u6848",
-    "description": "\u751F\u6210\u53EF\u8C03\u8282\u7684\u6CE2\u70B9\u56FE\u6848\u5E76\u5BFC\u51FA\u56FE\u7247\u3002",
+    "name": "\u56FE\u5F62\u751F\u6210\u5DE5\u5177",
+    "description": "\u751F\u6210\u6CE2\u70B9\u3001\u7EBF\u6761\u3001\u7F51\u683C\u3001\u7B49\u9AD8\u7EBF\u4E0E\u51E0\u4F55\u7D20\u6750\uFF0C\u5BFC\u51FA PNG \u6216 SVG\u3002",
     "category": "small",
-    "releaseNotes": "\u79FB\u9664\u4FA7\u8FB9\u680F\u3001\u6258\u76D8\u548C\u5F00\u673A\u81EA\u542F\u52A8\uFF0C\u529F\u80FD\u9762\u677F\u5360\u6EE1\u7A97\u53E3\u3002",
-    "publishedUtc": "2026-10-12T01:05:11.3957645+00:00"
+    "releaseNotes": "\u7EDF\u4E00\u56FE\u5F62\u751F\u6210\u4E0E\u6CE2\u70B9\u751F\u6210\u547D\u540D\uFF0C\u590D\u7528\u8272\u8F6E\u53D6\u8272\u5668\uFF0C\u652F\u6301 RGBA\u3001HSV\u3001Hex \u548C\u6700\u8FD1\u989C\u8272\u3002",
+    "publishedUtc": "2026-10-13T15:14:07.2006149+00:00"
   }
 }
