@@ -75,11 +75,51 @@ def run(report: Path) -> int:
                     convert_video(data/'input.mp4', data/'output.wmv', 'WMV', lossless=False)
                     check((data/'output.wmv').stat().st_size>0, 'bundled FFmpeg video conversion')
                 if product.MODULE=='dot_pattern':
+                    from app.widgets.color_picker_core import ColorPickerDialog
+                    from PySide6.QtGui import QColor
+                    picker=ColorPickerDialog(QColor('#804080c0'),allow_alpha=True,allow_clear=False)
+                    picker.alpha.box.setValue(77)
+                    check(QColor(picker.selected_hex()).alpha()==77,'shared color picker preserves alpha')
+                    picker.close()
                     from app.tools.dot_pattern import DotPatternParams, render_pattern
                     params=DotPatternParams(64,64,12,3,8,64,'left_right',90,(255,0,0,255),(0,0,0,0))
                     output=render_pattern(params)
                     output.save(data/'pattern.png')
                     check(output.size==(64,64) and output.getbbox() is not None, 'dot pattern renders and exports PNG')
+                    from app.tools.dot_pattern.graphics.catalog import CATALOG
+                    from app.tools.dot_pattern.graphics.render import rasterize
+                    window.resize(1120,760)
+                    for kind in CATALOG:
+                        window.tool.mode.setCurrentIndex(window.tool.mode.findData(kind))
+                        app.processEvents()
+                        doc=window.tool.document
+                        check(doc is not None, kind+' controls and SVG render')
+                        check(rasterize(doc).save(str(data/(kind+'.png'))), kind+' PNG export')
+                    window.tool.mode.setCurrentIndex(window.tool.mode.findData('scale'))
+                    app.processEvents()
+                    check(window.grab().save(str(report.with_suffix('.png'))), 'graphic workbench screenshot rendered')
+                if product.MODULE=='view_splitter':
+                    from PIL import Image, ImageDraw
+                    from app.tools.view_splitter import export_slices
+                    sample=Image.new('RGBA',(901,420),(0,0,0,0))
+                    draw=ImageDraw.Draw(sample)
+                    for left,color in ((20,'#89b4fa'),(320,'#a6e3a1'),(620,'#f5c2e7')):
+                        draw.rounded_rectangle((left,35,left+260,385),radius=35,fill=color)
+                        draw.ellipse((left+85,90,left+175,180),fill='#313244')
+                        draw.rectangle((left+75,200,left+185,330),fill='#45475a')
+                    sample.save(data/'three-views.png')
+                    check(window.tool.load(str(data/'three-views.png')), 'PNG loads into splitter')
+                    check(window.tool.last_cuts==[300,600], 'default three-way split')
+                    files=export_slices(window.tool.image,window.tool.last_cuts,data,'three-views')
+                    check(len(files)==3,'all slices exported')
+                    merged=Image.new('RGBA',sample.size)
+                    x=0
+                    for file in files:
+                        with Image.open(file) as part:
+                            merged.paste(part,(x,0));x+=part.width
+                    check(merged.tobytes()==sample.tobytes(),'export preserves all pixels and transparency')
+                    window.resize(1120,760);app.processEvents()
+                    check(window.grab().save(str(report.with_suffix('.png'))),'splitter screenshot rendered')
                 check(not legacy_target.exists() and isolated.value('archive/tasks')==legacy_jobs and isolated.value('backup/tasks')==legacy_jobs, 'retired jobs remain inert')
                 isolated.sync()
         result['success']=True

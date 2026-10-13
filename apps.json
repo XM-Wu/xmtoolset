@@ -14,10 +14,17 @@
     "version": "0.1.3"
   },
   "dot-pattern": {
-    "name": "波点图案",
-    "exe": "XMDotPattern",
+    "name": "图形生成工具",
+    "exe": "XMGraphicsGenerator",
     "module": "dot_pattern",
     "class": "DotPatternTool",
-    "version": "0.1.3"
+    "version": "0.2.1"
+  },
+  "view-splitter": {
+    "name": "三视图切分器",
+    "exe": "XMViewSplitter",
+    "module": "view_splitter",
+    "class": "ViewSplitterTool",
+    "version": "0.1.0"
   }
 }

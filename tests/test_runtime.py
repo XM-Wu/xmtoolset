@@ -21,7 +21,7 @@ class RuntimeTests(unittest.TestCase):
             self.assertEqual(result[0],tool_id)
             self.assertEqual(result[2],identity['version'])
             paths.append(result[1])
-        self.assertEqual(len(set(paths)),3)
+        self.assertEqual(len(set(paths)),len(products))
 
     def test_legacy_startup_cleanup_is_product_scoped(self):
         from unittest.mock import MagicMock

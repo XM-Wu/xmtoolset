@@ -53,7 +53,7 @@ def build(output: Path, tool_id: str):
         work=Path(temporary).resolve();source=work/'source';source.mkdir()
         (source/(tool_id+'.py')).write_text(f"from app import product\nproduct.select({tool_id!r}, {product['name']!r}, {release_version!r}, {tool_id+'.py'!r}, {product['module']!r})\nfrom app.runtime import main\nif __name__ == '__main__':\n    raise SystemExit(main())\n",encoding='utf-8')
         shutil.copytree(ROOT/'app',source/'app',ignore=shutil.ignore_patterns('__pycache__','*.pyc'))
-        for sibling in ('image_converter','video_converter','dot_pattern'):
+        for sibling in ('image_converter','video_converter','dot_pattern','view_splitter'):
             if sibling != product['module']:
                 target=source/'app'/'tools'/sibling
                 assert target.resolve().is_relative_to(source.resolve())
@@ -106,7 +106,7 @@ def build(output: Path, tool_id: str):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--output-dir',type=Path,default=ROOT/'artifacts')
-    parser.add_argument('--tool',choices=['all','image-converter','video-converter','dot-pattern'],default='all')
+    parser.add_argument('--tool',choices=['all','image-converter','video-converter','dot-pattern','view-splitter'],default='all')
     args=parser.parse_args()
     try:
         for tool_id in (json.loads((ROOT/'apps.json').read_text(encoding='utf-8')) if args.tool=='all' else [args.tool]):

@@ -1,0 +1,38 @@
+图形生成工具 0.2.1
+
+源码启动：start-graphics-generator.cmd
+可执行程序：XMGraphicsGenerator.exe。
+右上角切换波点生成及 15 类图形生成器。
+
+功能参考： https://rahoo.online/ 的“素材生成”页（2026-10-13 核对）。
+采用本地 Python / Qt 几何实现，不依赖网页加载，不包含网站的 JavaScript、品牌素材或字体。
+
+新增类型：同心圆、半调波点、HUD 线条、刻度圆、条形码、波浪纹理、重复线条、
+点阵、多边形网格、等高线、常见图形、嵌套多边形、经纬球、方形网格、射线。
+
+操作：
+  各类型的参数、画布大小、背景、局部修改独立保存。
+  滚轮缩放，拖动画布，适应画布复位视图；全屏后 Esc 返回。
+  点阵、半调波点、多边形网格和射线支持点选增删、按住擦除与恢复、撤销。
+  等高线点选后可修改该层的颜色、粗细、虚线与带状填充，也可删除上下层。
+  PNG / SVG 采用相同构图，透明背景导出不含预览棋盘格。
+  半调波点可加载本地 PNG / SVG 自定义点形状，以及透明图片整体轮廓。
+  重复线条、点阵、多边形网格、方形网格、常见图形提供重复单元 PNG。
+  条形码使用 Code 128-B，包含校验位，支持最多 256 个 ASCII 可打印字符。
+  随机图形采用固定种子，可修改种子重新生成，并保持预览与导出一致。
+
+取色器：
+  色轮、RGB / HSV / Alpha 通道、Hex 与最近使用颜色。
+  组件源文件位于 XMComicLibrary/shared/widgets/color_picker_core.py，宿主通过
+  回调提供最近颜色。漫画库与图形工具分别保留各自的存储适配器。
+  python sync-color-picker.py 同步组件；--check 校验两边源码一致。
+  独立发布包包含组件，不要求用户安装漫画库或保留两个项目的相对目录。
+
+复现范围：对应网站全部 15 个生成器类别及主要参数，使用原生桌面交互；
+并非网页界面或所有像素细节的一比一复制。HUD 台阶、经纬球投影、常见图形
+布局与随机地形使用本地算法；不包含网站的自由移动单个图形、部分端点/裁切
+细项和任意角度斜线的连续纹理填充。
+
+验证：python -m unittest discover -s tests -v
+独立程序自检：python dot-pattern.py --self-test --report artifacts/graphics-source-check.json
+构建：powershell -File build.ps1 -Tool dot-pattern

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "toolId": "view-splitter",
+  "version": "0.1.0",
+  "platform": "win-x64",
+  "packageFile": "view-splitter-0.1.0-win-x64.zip",
+  "size": 59180959,
+  "sha256": "cffa72c8f44a3702f52f7bc526e3f38a4bcbb4b1d5d5986f75de1b41a07798c0",
+  "entryPoint": "XMViewSplitter.exe",
+  "minimumLauncherVersion": "0.1.0",
+  "runtimeMode": "self-contained",
+  "dataSchemaVersion": 1
+}

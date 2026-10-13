@@ -1,0 +1,22 @@
+{
+  "success": true,
+  "frozen": true,
+  "checks": [
+    "product settings are isolated",
+    "product panel is the central widget",
+    "auto backup modules are not imported",
+    "UI screenshot rendered",
+    "no tray icon",
+    "minimize remains on taskbar",
+    "close hides window for application exit",
+    "bundled stylesheet SVG is present",
+    "PNG loads into splitter",
+    "default three-way split",
+    "all slices exported",
+    "export preserves all pixels and transparency",
+    "splitter screenshot rendered",
+    "retired jobs remain inert"
+  ],
+  "version": "0.1.0",
+  "toolId": "view-splitter"
+}

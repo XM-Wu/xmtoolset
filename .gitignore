@@ -50,4 +50,9 @@ artifacts/xm-model/**
 !artifacts/xm-model/*/*.png
 
 # Installation archives are published to Baidu XArchieve/App, not Git.
+!artifacts/view-splitter/
+artifacts/view-splitter/**
+!artifacts/view-splitter/*/
+!artifacts/view-splitter/*/*.json
+!artifacts/view-splitter/*/*.png
 artifacts/**/*.zip

@@ -1,4 +1,4 @@
-"""波点图案生成器界面。"""
+"""波点生成生成器界面。"""
 
 from __future__ import annotations
 
@@ -8,7 +8,6 @@ from PySide6.QtCore import QEvent, Qt, QTimer, QUrl
 from PySide6.QtGui import QColor, QDesktopServices, QImage, QPainter, QPixmap
 from PySide6.QtWidgets import (
     QCheckBox,
-    QColorDialog,
     QComboBox,
     QFileDialog,
     QFormLayout,
@@ -26,6 +25,7 @@ from PySide6.QtWidgets import (
 )
 
 from app import config
+from app.widgets.color_picker import pick_color
 from app.tools.base_tool import BaseTool
 from app.tools.dot_pattern import (
     ARRANGEMENTS,
@@ -49,10 +49,10 @@ _DIRECTION_LABELS = (
 )
 
 
-class DotPatternTool(BaseTool):
+class LegacyDotPatternTool(BaseTool):
     tool_id = "dot_pattern"
-    tool_name = "波点图案"
-    tool_description = "生成大小渐变的波点图案"
+    tool_name = "波点生成"
+    tool_description = "生成大小渐变的波点生成"
 
     def __init__(self, parent: QWidget | None = None) -> None:
         super().__init__(parent)
@@ -73,7 +73,7 @@ class DotPatternTool(BaseTool):
         root.setContentsMargins(16, 16, 16, 16)
         root.setSpacing(12)
 
-        title = QLabel("波点图案")
+        title = QLabel("波点生成")
         title.setObjectName("pageTitle")
         root.addWidget(title)
 
@@ -260,11 +260,10 @@ class DotPatternTool(BaseTool):
 
     def _pick_color(self, swatch: QLabel) -> None:
         current = self._dot_color if swatch is self.dot_swatch else self._bg_color
-        color = QColorDialog.getColor(
+        color = pick_color(
             current,
             self,
             "选择颜色",
-            QColorDialog.ColorDialogOption.ShowAlphaChannel,
         )
         if not color.isValid():
             return
@@ -542,3 +541,7 @@ def _pil_to_pixmap(image) -> QPixmap:
         QImage.Format.Format_RGBA8888,
     )
     return QPixmap.fromImage(qimg.copy())
+
+
+# Keep the registered entry point and settings identity for installed upgrades.
+from app.tools.dot_pattern.graphics.widget import GraphicsTool as DotPatternTool
