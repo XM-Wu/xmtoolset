@@ -2,27 +2,27 @@
   "package": {
     "schemaVersion": 1,
     "toolId": "xm-model",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "platform": "win-x64",
-    "packageFile": "xm-model-0.0.5-win-x64.zip",
-    "size": 68173344,
-    "sha256": "e1c297bc7bd395e55403ef005f3e7b425d6987c3e937226c80473f6f01d88d0d",
+    "packageFile": "xm-model-0.0.6-win-x64.zip",
+    "size": 68189027,
+    "sha256": "ece8bed5e749d6f1a81fcf9f9d7b5a98a03a13332f7988049e26022dbc7bd843",
     "entryPoint": "XM Model Library.exe",
     "minimumLauncherVersion": "0.2.0",
     "runtimeMode": "self-contained",
     "dataSchemaVersion": 1
   },
-  "commit": "b79421d8caf8ddb6e05f8b86684d8bf47724e5d0",
-  "path": "artifacts/xm-model/0.0.5/xm-model-0.0.5-win-x64.zip",
+  "commit": "935107498ccd25127a1c0c35ed552e50bfb2b020",
+  "path": "artifacts/xm-model/0.0.6/xm-model-0.0.6-win-x64.zip",
   "baidu": {
-    "fsId": 82156331225894,
-    "path": "/apps/XArchieve/App/xm-model/0.0.5/xm-model-0.0.5-win-x64.zip"
+    "fsId": 693110451466981,
+    "path": "/apps/XArchieve/App/xm-model/0.0.6/xm-model-0.0.6-win-x64.zip"
   },
   "metadata": {
     "name": "XM \u6A21\u578B\u67E5\u770B\u5668",
     "description": "\u7BA1\u7406\u4E0E\u9884\u89C8\u4E09\u7EF4\u6A21\u578B\uFF0C\u652F\u6301 OBJ \u548C USD\u3002",
     "category": "large",
-    "releaseNotes": "\u590D\u7528\u5171\u4EAB\u53D6\u8272\u5668\u7EC4\u4EF6\uFF0C\u4FDD\u7559\u6700\u8FD1\u989C\u8272\u4E0E\u73B0\u6709\u989C\u8272\u9009\u62E9\u884C\u4E3A\u3002",
-    "publishedUtc": "2026-10-13T15:15:27.1302769+00:00"
+    "releaseNotes": "\u66F4\u65B0\u8D44\u6E90\u5E93\u6D4F\u89C8\u3001\u5171\u4EAB\u7EC4\u4EF6\u4E0E\u5F53\u524D\u529F\u80FD\u4FEE\u590D\u3002",
+    "publishedUtc": "2026-10-24T11:40:18.1391045+00:00"
   }
 }

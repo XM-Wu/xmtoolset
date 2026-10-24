@@ -2,27 +2,27 @@
   "package": {
     "schemaVersion": 1,
     "toolId": "dot-pattern",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "platform": "win-x64",
-    "packageFile": "dot-pattern-0.2.1-win-x64.zip",
-    "size": 59318505,
-    "sha256": "bcbe8b31b91c4fac5ec82ee86aa36f196f5cded1178cf032375dd9e16f199d6a",
+    "packageFile": "dot-pattern-0.2.2-win-x64.zip",
+    "size": 59323774,
+    "sha256": "d084029b903356df1a02c122352389a1c09c77253916d2d2e6967d56ac550773",
     "entryPoint": "XMGraphicsGenerator.exe",
     "minimumLauncherVersion": "0.1.0",
     "runtimeMode": "self-contained",
     "dataSchemaVersion": 1
   },
-  "commit": "b79421d8caf8ddb6e05f8b86684d8bf47724e5d0",
-  "path": "artifacts/dot-pattern/0.2.1/dot-pattern-0.2.1-win-x64.zip",
+  "commit": "935107498ccd25127a1c0c35ed552e50bfb2b020",
+  "path": "artifacts/dot-pattern/0.2.2/dot-pattern-0.2.2-win-x64.zip",
   "baidu": {
-    "fsId": 397378630115922,
-    "path": "/apps/XArchieve/App/dot-pattern/0.2.1/dot-pattern-0.2.1-win-x64.zip"
+    "fsId": 698939617487850,
+    "path": "/apps/XArchieve/App/dot-pattern/0.2.2/dot-pattern-0.2.2-win-x64.zip"
   },
   "metadata": {
     "name": "\u56FE\u5F62\u751F\u6210\u5DE5\u5177",
     "description": "\u751F\u6210\u6CE2\u70B9\u3001\u7EBF\u6761\u3001\u7F51\u683C\u3001\u7B49\u9AD8\u7EBF\u4E0E\u51E0\u4F55\u7D20\u6750\uFF0C\u5BFC\u51FA PNG \u6216 SVG\u3002",
     "category": "small",
-    "releaseNotes": "\u7EDF\u4E00\u56FE\u5F62\u751F\u6210\u4E0E\u6CE2\u70B9\u751F\u6210\u547D\u540D\uFF0C\u590D\u7528\u8272\u8F6E\u53D6\u8272\u5668\uFF0C\u652F\u6301 RGBA\u3001HSV\u3001Hex \u548C\u6700\u8FD1\u989C\u8272\u3002",
-    "publishedUtc": "2026-10-13T15:14:07.2006149+00:00"
+    "releaseNotes": "\u6CE2\u70B9\u9884\u89C8\u6539\u4E3A SVG\uFF0C\u652F\u6301 SVG \u77E2\u91CF\u5BFC\u51FA\uFF1BPNG \u4F7F\u7528\u540C\u4E00\u6784\u56FE\uFF0C\u4FDD\u7559\u67D4\u8FB9\u4E0E\u900F\u660E\u80CC\u666F\u3002",
+    "publishedUtc": "2026-10-24T11:38:27.1447485+00:00"
   }
 }

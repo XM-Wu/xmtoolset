@@ -2,27 +2,27 @@
   "package": {
     "schemaVersion": 1,
     "toolId": "xm-comic",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "platform": "win-x64",
-    "packageFile": "xm-comic-0.0.3-win-x64.zip",
-    "size": 53697749,
-    "sha256": "8979f6b85356dc8b075fda97b1fb7f07b5d558367fc690203bae8d78689fb25b",
+    "packageFile": "xm-comic-0.0.4-win-x64.zip",
+    "size": 53697512,
+    "sha256": "701083264dfbb5656ca79fc10f7c5e2ccd46ec60a5f35260323f84238db17b95",
     "entryPoint": "XM Comic Library.exe",
     "minimumLauncherVersion": "0.2.0",
     "runtimeMode": "self-contained",
     "dataSchemaVersion": 1
   },
-  "commit": "b79421d8caf8ddb6e05f8b86684d8bf47724e5d0",
-  "path": "artifacts/xm-comic/0.0.3/xm-comic-0.0.3-win-x64.zip",
+  "commit": "935107498ccd25127a1c0c35ed552e50bfb2b020",
+  "path": "artifacts/xm-comic/0.0.4/xm-comic-0.0.4-win-x64.zip",
   "baidu": {
-    "fsId": 421535162155426,
-    "path": "/apps/XArchieve/App/xm-comic/0.0.3/xm-comic-0.0.3-win-x64.zip"
+    "fsId": 766036199372083,
+    "path": "/apps/XArchieve/App/xm-comic/0.0.4/xm-comic-0.0.4-win-x64.zip"
   },
   "metadata": {
     "name": "XM \u6F2B\u753B\u67E5\u770B\u5668",
     "description": "\u7BA1\u7406\u6F2B\u753B\u8D44\u6E90\u5E93\uFF0C\u6D4F\u89C8\u5C01\u9762\u4E0E\u9605\u8BFB\u56FE\u7247\u3002",
     "category": "large",
-    "releaseNotes": "\u590D\u7528\u5171\u4EAB\u53D6\u8272\u5668\u7EC4\u4EF6\uFF0C\u4FDD\u7559\u6700\u8FD1\u989C\u8272\u4E0E\u73B0\u6709\u989C\u8272\u9009\u62E9\u884C\u4E3A\u3002",
-    "publishedUtc": "2026-10-13T15:14:59.1013699+00:00"
+    "releaseNotes": "\u66F4\u65B0\u8D44\u6E90\u5E93\u6D4F\u89C8\u3001\u5171\u4EAB\u7EC4\u4EF6\u4E0E\u5F53\u524D\u529F\u80FD\u4FEE\u590D\u3002",
+    "publishedUtc": "2026-10-24T11:39:49.7728909+00:00"
   }
 }

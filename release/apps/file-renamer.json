@@ -1,0 +1,28 @@
+{
+  "package": {
+    "schemaVersion": 1,
+    "toolId": "file-renamer",
+    "version": "0.1.0",
+    "platform": "win-x64",
+    "packageFile": "file-renamer-0.1.0-win-x64.zip",
+    "size": 59207258,
+    "sha256": "c7fbcc07e9954511d45b5ed489e88b6fdb2ff1cc4d6f12c12c7d8fb42eaafe09",
+    "entryPoint": "XMFileRenamer.exe",
+    "minimumLauncherVersion": "0.1.0",
+    "runtimeMode": "self-contained",
+    "dataSchemaVersion": 1
+  },
+  "commit": "935107498ccd25127a1c0c35ed552e50bfb2b020",
+  "path": "artifacts/file-renamer/0.1.0/file-renamer-0.1.0-win-x64.zip",
+  "baidu": {
+    "fsId": 47171673147210,
+    "path": "/apps/XArchieve/App/file-renamer/0.1.0/file-renamer-0.1.0-win-x64.zip"
+  },
+  "metadata": {
+    "name": "\u6587\u4EF6\u6539\u540D",
+    "description": "\u6279\u91CF\u4FEE\u6539\u6587\u4EF6\u6269\u5C55\u540D\uFF0C\u652F\u6301\u9884\u89C8\u3001\u9012\u5F52\u5904\u7406\u548C\u51B2\u7A81\u68C0\u67E5\u3002",
+    "category": "small",
+    "releaseNotes": "\u65B0\u589E\u6587\u4EF6\u6539\u540D\u5DE5\u5177\uFF0C\u6539\u540D\u524D\u9884\u89C8\u76EE\u6807\u540D\u79F0\uFF0C\u51B2\u7A81\u963B\u6B62\u6267\u884C\uFF0C\u5931\u8D25\u65F6\u5C1D\u8BD5\u6062\u590D\u3002",
+    "publishedUtc": "2026-10-24T11:38:56.9534233+00:00"
+  }
+}
