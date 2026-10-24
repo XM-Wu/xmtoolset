@@ -56,3 +56,15 @@ artifacts/view-splitter/**
 !artifacts/view-splitter/*/*.json
 !artifacts/view-splitter/*/*.png
 artifacts/**/*.zip
+
+# New tool release diagnostics (packages remain outside Git).
+!artifacts/file-renamer/
+artifacts/file-renamer/**
+!artifacts/file-renamer/*/
+!artifacts/file-renamer/*/*.json
+!artifacts/file-renamer/*/*.png
+!artifacts/pleated-skirt/
+artifacts/pleated-skirt/**
+!artifacts/pleated-skirt/*/
+!artifacts/pleated-skirt/*/*.json
+!artifacts/pleated-skirt/*/*.png

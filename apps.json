@@ -18,13 +18,27 @@
     "exe": "XMGraphicsGenerator",
     "module": "dot_pattern",
     "class": "DotPatternTool",
-    "version": "0.2.1"
+    "version": "0.2.2"
   },
   "view-splitter": {
     "name": "三视图切分器",
     "exe": "XMViewSplitter",
     "module": "view_splitter",
     "class": "ViewSplitterTool",
+    "version": "0.1.0"
+  },
+  "file-renamer": {
+    "name": "文件改名",
+    "exe": "XMFileRenamer",
+    "module": "file_renamer",
+    "class": "FileRenamerTool",
+    "version": "0.1.0"
+  },
+  "pleated-skirt": {
+    "name": "裙子格纹生成器",
+    "exe": "XMPleatedSkirt",
+    "module": "pleated_skirt",
+    "class": "PleatedSkirtTool",
     "version": "0.1.0"
   }
 }

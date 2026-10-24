@@ -1,0 +1,21 @@
+{
+  "success": true,
+  "frozen": true,
+  "checks": [
+    "product settings are isolated",
+    "product panel is the central widget",
+    "auto backup modules are not imported",
+    "UI screenshot rendered",
+    "no tray icon",
+    "minimize remains on taskbar",
+    "close hides window for application exit",
+    "bundled stylesheet SVG is present",
+    "renamer preview lists the folder",
+    "renames every file in the folder",
+    "extension rename keeps contents and subfolders",
+    "renamer screenshot rendered",
+    "retired jobs remain inert"
+  ],
+  "version": "0.1.0",
+  "toolId": "file-renamer"
+}

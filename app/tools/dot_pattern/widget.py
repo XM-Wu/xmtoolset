@@ -24,6 +24,7 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
+from app.tools.dot_pattern.graphics.render import Document, rasterize
 from app import config
 from app.widgets.color_picker import pick_color
 from app.tools.base_tool import BaseTool
@@ -33,7 +34,7 @@ from app.tools.dot_pattern import (
     DEFAULT_DIRECTION,
     DIRECTIONS,
     DotPatternParams,
-    render_pattern,
+    render_pattern_svg,
 )
 
 _DEFAULT_DOT = "#ff89b4fa"
@@ -189,12 +190,8 @@ class LegacyDotPatternTool(BaseTool):
         self.preview_frame.setObjectName("previewFrame")
         frame_layout = QVBoxLayout(self.preview_frame)
         frame_layout.setContentsMargins(0, 0, 0, 0)
-        self.preview_label = QLabel()
-        self.preview_label.setObjectName("previewImage")
-        self.preview_label.setAlignment(Qt.AlignCenter)
-        self.preview_label.setMinimumSize(240, 240)
-        self.preview_label.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        self.preview_label.installEventFilter(self)
+        from app.tools.dot_pattern.graphics.widget import Preview
+        self.preview_label = Preview()
         frame_layout.addWidget(self.preview_label)
         preview_layout.addWidget(self.preview_frame, stretch=1)
 
@@ -216,6 +213,9 @@ class LegacyDotPatternTool(BaseTool):
         action_row.addWidget(self.btn_open_folder)
         action_row.addStretch()
         action_row.addWidget(self.btn_reset)
+        self.btn_export_svg = QPushButton("导出 SVG…")
+        self.btn_export_svg.clicked.connect(lambda: self._export("svg"))
+        action_row.addWidget(self.btn_export_svg)
         action_row.addWidget(self.btn_export)
         root.addLayout(action_row)
 
@@ -249,7 +249,7 @@ class LegacyDotPatternTool(BaseTool):
         self.height_spin.valueChanged.connect(self._on_height_changed)
         self.square_check.toggled.connect(self._on_square_toggled)
         self.transparent_check.toggled.connect(self._on_params_changed)
-        self.btn_export.clicked.connect(self._export)
+        self.btn_export.clicked.connect(lambda: self._export("png"))
         self.btn_reset.clicked.connect(self._reset_defaults)
         self.btn_open_folder.clicked.connect(self._open_export_folder)
 
@@ -353,26 +353,21 @@ class LegacyDotPatternTool(BaseTool):
             arrangement=arrangement,
         )
 
-    def _refresh_preview(self) -> None:
-        label = self.preview_label
-        dpr = max(1.0, label.devicePixelRatioF())
-        pw = max(1, int(label.width() * dpr))
-        ph = max(1, int(label.height() * dpr))
+    def _svg_document(self) -> Document:
         params = self._current_params()
-        scale = min(pw / params.width, ph / params.height)
-        rw = max(1, int(round(params.width * scale)))
-        rh = max(1, int(round(params.height * scale)))
-        image = render_pattern(params.scaled(scale, rw, rh))
-        pixmap = _pil_to_pixmap(image)
+        return Document(render_pattern_svg(params), params.width, params.height)
 
-        composed = _checkerboard_pixmap(pw, ph)
-        painter = QPainter(composed)
-        ox = (pw - pixmap.width()) // 2
-        oy = (ph - pixmap.height()) // 2
-        painter.drawPixmap(ox, oy, pixmap)
-        painter.end()
-        composed.setDevicePixelRatio(dpr)
-        label.setPixmap(composed)
+    def _refresh_preview(self) -> None:
+        params = self._current_params()
+        try:
+            previous = self.preview_label.renderer
+            self.preview_label.show_document(self._svg_document())
+            if previous is not None:
+                previous.deleteLater()
+        except (ValueError, MemoryError) as exc:
+            self.preview_label.scene().clear()
+            self.status_label.setText("无法生成：" + str(exc))
+            return
 
         direction_name = self.direction_combo.currentText()
         self.status_label.setText(
@@ -382,25 +377,27 @@ class LegacyDotPatternTool(BaseTool):
             f"锐度 {int(params.sharpness)}"
         )
 
-    def _export(self) -> None:
-        params = self._current_params()
-        suggested = str(self._last_export) if self._last_export else "polka_dot.png"
+    def _export(self, extension="png") -> None:
+        suggested = str(self._last_export.with_suffix("." + extension)) if self._last_export else "polka_dot." + extension
         path, _ = QFileDialog.getSaveFileName(
             self,
-            "导出 PNG",
+            "导出 " + extension.upper(),
             suggested,
-            "PNG 图片 (*.png)",
+            extension.upper() + " 图片 (*." + extension + ")",
         )
         if not path:
             return
         dest = Path(path)
-        if dest.suffix.lower() != ".png":
-            dest = dest.with_suffix(".png")
+        if dest.suffix.lower() != "." + extension:
+            dest = dest.with_suffix("." + extension)
         try:
-            image = render_pattern(params)
+            document = self._svg_document()
             dest.parent.mkdir(parents=True, exist_ok=True)
-            image.save(dest, format="PNG", optimize=True)
-        except OSError as exc:
+            if extension == "svg":
+                dest.write_text(document.svg, encoding="utf-8")
+            elif not rasterize(document).save(str(dest), "PNG"):
+                raise OSError("无法写入 PNG 文件")
+        except (OSError, ValueError, MemoryError) as exc:
             QMessageBox.warning(self, "导出失败", str(exc))
             return
 

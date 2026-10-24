@@ -53,6 +53,42 @@ class DotPatternParams:
         )
 
 
+def render_pattern_svg(params: DotPatternParams) -> str:
+    """Vector circles and radial opacity gradients; no embedded bitmap data."""
+    width, height = max(1, int(params.width)), max(1, int(params.height))
+    spacing = max(0.5, float(params.pattern_size))
+    start, end = max(0.0, params.start_size), max(0.0, params.end_size)
+    distance = max(0.0, params.gradient_distance)
+    direction = params.direction if params.direction in DIRECTIONS else DEFAULT_DIRECTION
+    arrangement = params.arrangement if params.arrangement in ARRANGEMENTS else DEFAULT_ARRANGEMENT
+    sharpness = max(0.0, min(100.0, params.sharpness))
+    r, g, b, alpha = _clamp_rgba(params.dot_rgba)
+    br, bg, bb, ba = _clamp_rgba(params.bg_rgba)
+    color = f'#{r:02x}{g:02x}{b:02x}'
+    definitions, circles, gradients = [], [], {}
+    extra = max(start, end) / 2 + spacing
+    if alpha and max(start, end) > 0:
+        for index, (cx, cy) in enumerate(_iter_centers(width, height, spacing, arrangement, extra)):
+            if index >= 250000:
+                raise ValueError('波点过于密集，请增大间距或缩小画布')
+            t = _size_progress(cx, cy, width, height, distance, direction)
+            radius = (start + (end - start) * t) / 2
+            if radius <= 0 or cx+radius <= 0 or cy+radius <= 0 or cx-radius >= width or cy-radius >= height:
+                continue
+            fill = color
+            if sharpness < 100:
+                inner = max(0.0, 1 - _edge_falloff(radius, sharpness) / radius)
+                key = f'{inner:.8f}'
+                if key not in gradients:
+                    gradient_id = f'dot{len(gradients)}'
+                    gradients[key] = gradient_id
+                    definitions.append(f'<radialGradient id="{gradient_id}" gradientUnits="objectBoundingBox" cx="0.5" cy="0.5" r="0.5"><stop offset="{key}" stop-color="{color}" stop-opacity="1"/><stop offset="1" stop-color="{color}" stop-opacity="0"/></radialGradient>')
+                fill = f'url(#{gradients[key]})'
+            circles.append(f'<circle cx="{cx:.6f}" cy="{cy:.6f}" r="{radius:.6f}" fill="{fill}" fill-opacity="{alpha/255:.8f}"/>')
+    background = f'<rect width="{width}" height="{height}" fill="#{br:02x}{bg:02x}{bb:02x}" fill-opacity="{ba/255:.8f}"/>' if ba else ''
+    return f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}"><defs>{"".join(definitions)}</defs>{background}{"".join(circles)}</svg>'
+
+
 def render_pattern(params: DotPatternParams) -> Image.Image:
     """按目标尺寸绘制波点图案。"""
     width = max(1, int(params.width))

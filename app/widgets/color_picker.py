@@ -11,8 +11,8 @@ def recent_colors():
     return [c for c in (values or []) if isinstance(c,str) and QColor(c).isValid()][:16]
 
 
-def pick_color(initial, parent=None, title='选择颜色'):
-    dialog=ColorPickerDialog(QColor(initial),parent,recent_loader=recent_colors,allow_alpha=True,allow_clear=False)
+def pick_color(initial, parent=None, title='选择颜色', *, allow_alpha=True):
+    dialog=ColorPickerDialog(QColor(initial),parent,recent_loader=recent_colors,allow_alpha=allow_alpha,allow_clear=False)
     dialog.setWindowTitle(title)
     if dialog.exec()!=QDialog.Accepted: return QColor()
     color=QColor(dialog.selected_hex())

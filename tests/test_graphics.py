@@ -32,6 +32,42 @@ class GraphicsTests(unittest.TestCase):
                 self.assertEqual((image.width(),image.height()),(512,384))
                 self.assertTrue(any(image.pixelColor(x,y).alpha() for y in range(0,384,3) for x in range(0,512,3)))
 
+    def test_dot_svg_geometry_softness_and_export(self):
+        from dataclasses import replace
+        import tempfile
+        from app.tools.dot_pattern import DotPatternParams, render_pattern_svg, ARRANGEMENTS, DIRECTIONS
+        from app.tools.dot_pattern.graphics.render import Document
+        from app.tools.dot_pattern.widget import LegacyDotPatternTool
+        params=DotPatternParams(64,48,32,24,24,0,'left_right',0,(255,0,0,128),(0,0,0,0))
+        svg=render_pattern_svg(params)
+        self.assertNotIn('<image',svg)
+        self.assertIn('<radialGradient',svg)
+        soft=rasterize(Document(svg,64,48))
+        self.assertGreater(soft.pixelColor(16,16).alpha(),soft.pixelColor(24,16).alpha())
+        self.assertEqual(soft.pixelColor(0,0).alpha(),0)
+        hard=render_pattern_svg(replace(params,sharpness=100))
+        self.assertNotIn('radialGradient',hard)
+        for arrangement in ARRANGEMENTS:
+            for direction in DIRECTIONS:
+                root=ET.fromstring(render_pattern_svg(replace(params,arrangement=arrangement,direction=direction,gradient_distance=64,end_size=12)))
+                self.assertEqual(root.attrib['viewBox'],'0 0 64 48')
+                self.assertTrue(root.findall('{http://www.w3.org/2000/svg}circle'))
+        with tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parents[1]/'artifacts') as folder:
+            settings=QSettings(str(Path(folder)/'settings.ini'),QSettings.IniFormat)
+            with patch.object(config,'settings',return_value=settings):
+                widget=LegacyDotPatternTool()
+                self.assertTrue(widget.preview_label.renderer.isValid())
+                for extension in ('svg','png'):
+                    filename=Path(folder)/('dots.'+extension)
+                    with patch('app.tools.dot_pattern.widget.QFileDialog.getSaveFileName',return_value=(str(filename),'')),patch('app.tools.dot_pattern.widget.QMessageBox.information'):
+                        widget._export(extension)
+                    self.assertTrue(filename.is_file())
+                    if extension=='svg': self.assertEqual(filename.read_text(encoding='utf-8'),widget._svg_document().svg)
+                    else:
+                        from PySide6.QtGui import QImage
+                        self.assertEqual(QImage(str(filename)).convertToFormat(QImage.Format_RGBA8888),rasterize(widget._svg_document()).convertToFormat(QImage.Format_RGBA8888))
+                widget._preview_timer.stop();widget.close()
+
     def test_random_scenes_are_stable_and_seed_changes_geometry(self):
         for kind,values in [('contour',{}),('rays',{'mode':'random'}),('scale',{'jitter':20})]:
             with self.subTest(kind=kind):

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "toolId": "file-renamer",
+  "version": "0.1.0",
+  "platform": "win-x64",
+  "packageFile": "file-renamer-0.1.0-win-x64.zip",
+  "size": 59207258,
+  "sha256": "c7fbcc07e9954511d45b5ed489e88b6fdb2ff1cc4d6f12c12c7d8fb42eaafe09",
+  "entryPoint": "XMFileRenamer.exe",
+  "minimumLauncherVersion": "0.1.0",
+  "runtimeMode": "self-contained",
+  "dataSchemaVersion": 1
+}

@@ -81,11 +81,15 @@ def run(report: Path) -> int:
                     picker.alpha.box.setValue(77)
                     check(QColor(picker.selected_hex()).alpha()==77,'shared color picker preserves alpha')
                     picker.close()
-                    from app.tools.dot_pattern import DotPatternParams, render_pattern
+                    from app.tools.dot_pattern import DotPatternParams, render_pattern, render_pattern_svg
+                    from PySide6.QtCore import QByteArray
+                    from PySide6.QtSvg import QSvgRenderer
                     params=DotPatternParams(64,64,12,3,8,64,'left_right',90,(255,0,0,255),(0,0,0,0))
                     output=render_pattern(params)
                     output.save(data/'pattern.png')
                     check(output.size==(64,64) and output.getbbox() is not None, 'dot pattern renders and exports PNG')
+                    svg=render_pattern_svg(params)
+                    check(QSvgRenderer(QByteArray(svg.encode())).isValid() and '<image' not in svg, 'dot pattern exports vector SVG')
                     from app.tools.dot_pattern.graphics.catalog import CATALOG
                     from app.tools.dot_pattern.graphics.render import rasterize
                     window.resize(1120,760)
@@ -120,6 +124,39 @@ def run(report: Path) -> int:
                     check(merged.tobytes()==sample.tobytes(),'export preserves all pixels and transparency')
                     window.resize(1120,760);app.processEvents()
                     check(window.grab().save(str(report.with_suffix('.png'))),'splitter screenshot rendered')
+                if product.MODULE=='file_renamer':
+                    from app.tools.file_renamer import apply_renames
+                    folder=data/'notes'
+                    folder.mkdir()
+                    (folder/'a.txt').write_text('a',encoding='utf-8')
+                    (folder/'b.jpg').write_text('b',encoding='utf-8')
+                    nested=folder/'keep'
+                    nested.mkdir()
+                    (nested/'c.txt').write_text('c',encoding='utf-8')
+                    window.resize(1120,760)
+                    window.tool.set_directory(folder)
+                    window.tool.extension.setText('png')
+                    app.processEvents()
+                    check(window.tool.table.rowCount()==2 and window.tool.rename_button.isEnabled(), 'renamer preview lists the folder')
+                    done=apply_renames(window.tool.plans)
+                    check({dest.name for _,dest in done}=={'a.png','b.png'}, 'renames every file in the folder')
+                    check((folder/'a.png').read_text(encoding='utf-8')=='a' and (nested/'c.txt').is_file(), 'extension rename keeps contents and subfolders')
+                    check(window.grab().save(str(report.with_suffix('.png'))), 'renamer screenshot rendered')
+                if product.MODULE=='pleated_skirt':
+                    import xml.etree.ElementTree as ET
+                    from PIL import Image
+                    window.tool.stage.setCurrentIndex(0);window.tool.refresh()
+                    window.tool.save_image(data/'weave.png','png')
+                    with Image.open(data/'weave.png') as image:
+                        check(len(image.convert('RGB').getcolors(3) or [])==2,'black and white weave structure')
+                    window.tool.stage.setCurrentIndex(1);window.tool.refresh()
+                    window.tool.save_image(data/'plaid.svg','svg')
+                    window.tool.save_image(data/'plaid.png','png')
+                    check(ET.parse(data/'plaid.svg').getroot().tag.endswith('svg'),'plaid SVG export')
+                    with Image.open(data/'plaid.png') as image:
+                        check(image.size==window.tool.params().dimensions(),'plaid PNG uses seamless tile size')
+                    window.resize(1200,860);app.processEvents()
+                    check(window.grab().save(str(report.with_suffix('.png'))),'plaid editor screenshot rendered')
                 check(not legacy_target.exists() and isolated.value('archive/tasks')==legacy_jobs and isolated.value('backup/tasks')==legacy_jobs, 'retired jobs remain inert')
                 isolated.sync()
         result['success']=True

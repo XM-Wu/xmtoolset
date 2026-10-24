@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "toolId": "dot-pattern",
+  "version": "0.2.2",
+  "platform": "win-x64",
+  "packageFile": "dot-pattern-0.2.2-win-x64.zip",
+  "size": 59323774,
+  "sha256": "d084029b903356df1a02c122352389a1c09c77253916d2d2e6967d56ac550773",
+  "entryPoint": "XMGraphicsGenerator.exe",
+  "minimumLauncherVersion": "0.1.0",
+  "runtimeMode": "self-contained",
+  "dataSchemaVersion": 1
+}

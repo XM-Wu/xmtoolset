@@ -1,7 +1,7 @@
-四个独立小应用：image-converter / video-converter / dot-pattern / view-splitter
+六个独立小应用：image-converter / video-converter / dot-pattern / view-splitter / file-renamer / pleated-skirt
 版本分别在 apps.json 管理。独立入口：<tool-id>.py；源码启动：start-<tool-id>.cmd。
 每个应用拥有独立设置；不提供开机启动或托盘功能。最小化保留在任务栏，关闭窗口退出。新版首次启动清理对应小应用的旧自启动项；其他设置保留。
-四个独立入口共用 app/runtime.py。图形生成工具也可使用 start-graphics-generator.cmd 启动。
+六个独立入口共用 app/runtime.py。图形生成工具也可使用 start-graphics-generator.cmd 启动。
 构建全部：powershell -File build.ps1
 单独构建：powershell -File build.ps1 -Tool image-converter
 产物：artifacts/<tool-id>/<version>/，含独立 EXE、ZIP、SHA256 清单、自检报告与截图。

@@ -1,0 +1,23 @@
+预设来源与实现说明（2026-10-24）
+
+保留：奶油金棕蓝格纹，来自用户此前提供的参考截图。
+新增 8 个预设：
+- 经典红色苏格兰格：参考 Royal Stewart 红底多色线风格。
+  https://www.kinlochanderson.com/tartan/stewart-royal
+- 墨绿藏蓝格：参考 Black Watch 的深绿、藏蓝、黑色组合。
+  https://www.tartanregister.gov.uk/qResults?searchString=black+watch
+- 红黑大格：参考 Buffalo Check 的等宽红黑大格。
+  https://www.woolrich.com/gb/en/the-birth-of-an-icon.html
+- 蓝白小格、粉白小格：Gingham 两色等宽、平纹交织的配色变体。
+- 藏蓝窗格：Windowpane 大底色加细线的组合。
+  https://theplaidstudio.com/blog/gingham-vs-tartan-vs-plaid.html
+- 黑白千鸟格：黑白各 4 线、2 上 / 2 下的交织结构。
+  https://en.wikipedia.org/wiki/Houndstooth
+- 灰白复合格：Glen Check 风格的细格与大格分区。
+  https://en.wikipedia.org/wiki/Glen_plaid
+
+这些是生成器内可编辑的风格预设；具体 RGB 颜色、线数及重复尺寸为本地设计。
+不是官方登记 tartan 的精确复刻，也没有使用网站图片作为纹理。
+选择预设后点击“应用预设”载入完整规则；仅切换下拉选项不会覆盖当前编辑。
+可继续改色、调线数，通过“保存规则”保存个人版本。
+“恢复参考预设”始终载入原奶油金棕蓝格纹。

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "toolId": "pleated-skirt",
+  "version": "0.1.0",
+  "platform": "win-x64",
+  "packageFile": "pleated-skirt-0.1.0-win-x64.zip",
+  "size": 59192112,
+  "sha256": "93500475742c1eb4fd7bab15b4a4525ea77de6a2c38cf0b4b3059a37246e60bd",
+  "entryPoint": "XMPleatedSkirt.exe",
+  "minimumLauncherVersion": "0.1.0",
+  "runtimeMode": "self-contained",
+  "dataSchemaVersion": 1
+}
