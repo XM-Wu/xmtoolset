@@ -3,9 +3,10 @@ from __future__ import annotations
 
 import math
 
-from PySide6.QtCore import QPoint, QRect, QSize, Qt, Signal
-from PySide6.QtGui import QColor, QConicalGradient, QImage, QLinearGradient, QMouseEvent, QPainter, QPen, QPolygon
+from PySide6.QtCore import QPoint, QPointF, QRect, QSize, Qt, Signal, QTimer
+from PySide6.QtGui import QColor, QConicalGradient, QCursor, QImage, QLinearGradient, QMouseEvent, QPainter, QPen, QPolygon
 from PySide6.QtWidgets import (
+    QApplication,
     QDialog,
     QGridLayout,
     QHBoxLayout,
@@ -28,6 +29,85 @@ def _hue(color: QColor) -> int:
 
 def color_to_hex(color: QColor) -> str:
     return color.name(QColor.HexArgb if color.alpha() < 255 else QColor.HexRgb).upper()
+
+
+def _screen_pixel(image: QImage, logical_size: QSize, position: QPoint | QPointF) -> QPoint:
+    """Map a monitor-local logical position to physical snapshot pixels."""
+    if image.isNull() or logical_size.width() <= 0 or logical_size.height() <= 0:
+        raise ValueError('屏幕图像为空')
+    x = math.floor(position.x() * image.width() / logical_size.width())
+    y = math.floor(position.y() * image.height() / logical_size.height())
+    return QPoint(max(0, min(image.width()-1, x)), max(0, min(image.height()-1, y)))
+
+
+class _ScreenPickOverlay(QWidget):
+    """A frozen, in-memory monitor snapshot; the magnifier is never sampled."""
+    picked = Signal(QColor)
+    cancelled = Signal()
+
+    def __init__(self, geometry: QRect, image: QImage, parent=None):
+        super().__init__(parent, Qt.Tool | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint)
+        self.image = image
+        self.setAttribute(Qt.WA_OpaquePaintEvent)
+        self.setMouseTracking(True)
+        self.setFocusPolicy(Qt.StrongFocus)
+        self.setCursor(Qt.CrossCursor)
+        self.setGeometry(geometry)
+        self.position = QPointF(QCursor.pos() - geometry.topLeft())
+
+    def color_at(self, position):
+        pixel = _screen_pixel(self.image, self.size(), position)
+        color = self.image.pixelColor(pixel)
+        color.setAlpha(255)  # Desktop compositing has no useful source alpha.
+        return color
+
+    def mouseMoveEvent(self, event):
+        self.position = event.position()
+        self.update()
+
+    def mousePressEvent(self, event):
+        if event.button() == Qt.LeftButton:
+            self.picked.emit(self.color_at(event.position()))
+        elif event.button() == Qt.RightButton:
+            self.cancelled.emit()
+        event.accept()
+
+    def keyPressEvent(self, event):
+        if event.key() == Qt.Key_Escape:
+            self.cancelled.emit()
+        elif event.key() in (Qt.Key_Return, Qt.Key_Enter):
+            position = self.mapFromGlobal(QCursor.pos())
+            if self.rect().contains(position): self.picked.emit(self.color_at(position))
+        else:
+            super().keyPressEvent(event)
+
+    def closeEvent(self, event):
+        self.cancelled.emit()
+        super().closeEvent(event)
+
+    def paintEvent(self, event):
+        painter = QPainter(self)
+        painter.drawImage(self.rect(), self.image)
+        if not self.rect().contains(self.position.toPoint()): return
+        pixel = _screen_pixel(self.image, self.size(), self.position)
+        color = self.color_at(self.position)
+        x = int(min(max(0, self.position.x()+22), max(0, self.width()-238)))
+        y = int(min(max(0, self.position.y()+22), max(0, self.height()-144)))
+        box = QRect(x,y,232,138)
+        painter.setPen(QPen(QColor('#737787'),1))
+        painter.setBrush(QColor('#20222c'))
+        painter.drawRoundedRect(box,8,8)
+        painter.setRenderHint(QPainter.SmoothPixmapTransform,False)
+        zoom = QRect(x+10,y+10,88,88)
+        painter.fillRect(zoom,Qt.black)
+        painter.drawImage(zoom,self.image,QRect(pixel.x()-5,pixel.y()-5,11,11))
+        painter.setBrush(Qt.NoBrush)
+        painter.setPen(QPen(Qt.white,1))
+        painter.drawRect(x+50,y+50,8,8)
+        painter.fillRect(x+112,y+12,106,32,color)
+        painter.setPen(Qt.white)
+        painter.drawText(QRect(x+108,y+52,120,30),Qt.AlignCenter,color.name().upper())
+        painter.drawText(QRect(x+10,y+102,212,26),Qt.AlignCenter,'左键选取 · 右键 / Esc 取消')
 
 
 class ColorWheel(QWidget):
@@ -285,6 +365,14 @@ class ColorPickerDialog(QDialog):
         if not self._color.isValid():
             self._color = QColor("#4d8dff")
         self._updating = False
+        self._screen_pick_active = False
+        self._pick_opacity = 1.0
+        self._pick_overlays = []
+        self._watched_screens = []
+        self._pick_timer = QTimer(self)
+        self._pick_timer.setSingleShot(True)
+        self._pick_timer.setInterval(180)
+        self._pick_timer.timeout.connect(self._capture_screens)
 
         root = QVBoxLayout(self)
         root.setContentsMargins(16, 16, 16, 16)
@@ -334,7 +422,15 @@ class ColorPickerDialog(QDialog):
         self.hex_edit.setToolTip("#RRGGBB 或 #AARRGGBB（透明度在前）")
         hex_row.addWidget(self.hex_edit)
         hex_row.addStretch(1)
+        self.screen_pick_btn = QPushButton('屏幕取色')
+        self.screen_pick_btn.setToolTip('临时隐藏取色器，从屏幕取色；左键确认，右键或 Esc 取消。保留当前透明度。')
+        self.screen_pick_btn.clicked.connect(self._start_screen_pick)
+        hex_row.addWidget(self.screen_pick_btn)
         root.addLayout(hex_row)
+        self.screen_pick_status = QLabel()
+        self.screen_pick_status.setWordWrap(True)
+        self.screen_pick_status.hide()
+        root.addWidget(self.screen_pick_status)
 
         recent_label = QLabel("最近使用")
         recent_label.setObjectName("muted")
@@ -373,6 +469,98 @@ class ColorPickerDialog(QDialog):
         cancel.clicked.connect(self.reject)
         self._cleared = False
         self._refresh()
+
+    def _start_screen_pick(self):
+        if self._screen_pick_active: return
+        self._screen_pick_active = True
+        self.screen_pick_btn.setEnabled(False)
+        self.screen_pick_status.hide()
+        app = QApplication.instance()
+        app.screenRemoved.connect(self._cancel_screen_pick)
+        app.screenAdded.connect(self._cancel_screen_pick)
+        # Hiding a QDialog would terminate its exec() loop and look like Cancel
+        # to the host. Keep it modal but visually absent during sampling.
+        self._pick_opacity = self.windowOpacity()
+        self.setWindowOpacity(0.0)
+        # Let the compositor remove this dialog before capturing its background.
+        self._pick_timer.start()
+
+    def _capture_screens(self):
+        if not self._screen_pick_active: return
+        try:
+            screens = QApplication.screens()
+            if not screens: raise RuntimeError('没有可用的屏幕')
+            snapshots = []
+            # Capture every monitor before showing any of the overlays.
+            for screen in screens:
+                image = screen.grabWindow(0).toImage()
+                if image.isNull(): raise RuntimeError('无法读取屏幕，请检查屏幕录制权限后重试')
+                snapshots.append((screen, QRect(screen.geometry()), image))
+            active = None
+            for screen, geometry, image in snapshots:
+                overlay = _ScreenPickOverlay(geometry,image,self)
+                self._pick_overlays.append(overlay)
+                overlay.winId()
+                overlay.windowHandle().setScreen(screen)
+                overlay.setGeometry(geometry)
+                overlay.picked.connect(self._screen_color_picked)
+                overlay.cancelled.connect(self._cancel_screen_pick)
+                screen.geometryChanged.connect(self._cancel_screen_pick)
+                self._watched_screens.append(screen)
+                overlay.show()
+                if geometry.contains(QCursor.pos()): active = overlay
+            active = active or self._pick_overlays[0]
+            active.raise_();active.activateWindow();active.setFocus()
+        except Exception as exc:
+            self._end_screen_pick()
+            self.screen_pick_status.setText('屏幕取色失败：'+str(exc))
+            self.screen_pick_status.show()
+
+    def _screen_color_picked(self, color):
+        if not self._screen_pick_active: return
+        selected = QColor(color)
+        selected.setAlpha(self._color.alpha() if self._allow_alpha else 255)
+        self._end_screen_pick()
+        self.hex_edit.clearFocus()
+        self._apply_color(selected)
+        self.screen_pick_status.setText('已取色，可继续调整；点击“确定”应用。')
+        self.screen_pick_status.show()
+
+    def _cancel_screen_pick(self, *_args):
+        self._end_screen_pick()
+
+    def _end_screen_pick(self, restore=True):
+        if not self._screen_pick_active: return
+        self._screen_pick_active = False
+        self._pick_timer.stop()
+        app = QApplication.instance()
+        for signal in (app.screenRemoved,app.screenAdded):
+            try: signal.disconnect(self._cancel_screen_pick)
+            except (RuntimeError,TypeError): pass
+        for screen in self._watched_screens:
+            try: screen.geometryChanged.disconnect(self._cancel_screen_pick)
+            except (RuntimeError,TypeError): pass
+        self._watched_screens.clear()
+        for overlay in self._pick_overlays:
+            overlay.close()
+            overlay.image = QImage()  # Release all screen pixels immediately.
+            overlay.deleteLater()
+        self._pick_overlays.clear()
+        self.screen_pick_btn.setEnabled(True)
+        self.setWindowOpacity(self._pick_opacity)
+        if restore:
+            self.show();self.raise_();self.activateWindow()
+
+    def keyPressEvent(self, event):
+        if self._screen_pick_active and event.key() == Qt.Key_Escape:
+            self._cancel_screen_pick()
+            event.accept()
+        else:
+            super().keyPressEvent(event)
+
+    def done(self, result):
+        self._end_screen_pick(restore=False)
+        super().done(result)
 
     def _reload_recent(self) -> None:
         while self.recent_layout.count():

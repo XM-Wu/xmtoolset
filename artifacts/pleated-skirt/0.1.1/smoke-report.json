@@ -1,0 +1,25 @@
+{
+  "success": true,
+  "frozen": true,
+  "checks": [
+    "product settings are isolated",
+    "product panel is the central widget",
+    "auto backup modules are not imported",
+    "UI screenshot rendered",
+    "no tray icon",
+    "minimize remains on taskbar",
+    "close hides window for application exit",
+    "bundled stylesheet SVG is present",
+    "shared color picker preserves alpha",
+    "screen picker entry is bundled",
+    "screen picker high-DPI coordinate mapping",
+    "screen picker selection preserves alpha and completes",
+    "black and white weave structure",
+    "plaid SVG export",
+    "plaid PNG uses seamless tile size",
+    "plaid editor screenshot rendered",
+    "retired jobs remain inert"
+  ],
+  "version": "0.1.1",
+  "toolId": "pleated-skirt"
+}

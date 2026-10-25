@@ -74,13 +74,22 @@ def run(report: Path) -> int:
                     subprocess.run([ffmpeg,'-hide_banner','-loglevel','error','-f','lavfi','-i','color=c=blue:s=32x32:d=0.3','-y',str(data/'input.mp4')],check=True,capture_output=True,timeout=30,creationflags=flags)
                     convert_video(data/'input.mp4', data/'output.wmv', 'WMV', lossless=False)
                     check((data/'output.wmv').stat().st_size>0, 'bundled FFmpeg video conversion')
-                if product.MODULE=='dot_pattern':
-                    from app.widgets.color_picker_core import ColorPickerDialog
+                if product.MODULE in ('dot_pattern','pleated_skirt'):
+                    from app.widgets.color_picker_core import ColorPickerDialog, _screen_pixel
                     from PySide6.QtGui import QColor
                     picker=ColorPickerDialog(QColor('#804080c0'),allow_alpha=True,allow_clear=False)
                     picker.alpha.box.setValue(77)
                     check(QColor(picker.selected_hex()).alpha()==77,'shared color picker preserves alpha')
+                    check(picker.screen_pick_btn.text()=='屏幕取色','screen picker entry is bundled')
+                    from PySide6.QtCore import QSize, QPointF, QPoint
+                    from PySide6.QtGui import QImage
+                    sample=QImage(200,100,QImage.Format_RGB32);sample.fill(QColor('#abcdef'))
+                    check(_screen_pixel(sample,QSize(100,50),QPointF(15.5,8.5))==QPoint(31,17),'screen picker high-DPI coordinate mapping')
+                    picker.setAttribute(Qt.WA_DontShowOnScreen,True)
+                    picker._start_screen_pick();picker._screen_color_picked(QColor('#abcdef'))
+                    check(picker.selected_hex()=='#4DABCDEF' and not picker._pick_timer.isActive(),'screen picker selection preserves alpha and completes')
                     picker.close()
+                if product.MODULE=='dot_pattern':
                     from app.tools.dot_pattern import DotPatternParams, render_pattern, render_pattern_svg
                     from PySide6.QtCore import QByteArray
                     from PySide6.QtSvg import QSvgRenderer

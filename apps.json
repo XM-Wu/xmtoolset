@@ -18,7 +18,7 @@
     "exe": "XMGraphicsGenerator",
     "module": "dot_pattern",
     "class": "DotPatternTool",
-    "version": "0.2.2"
+    "version": "0.2.3"
   },
   "view-splitter": {
     "name": "三视图切分器",
@@ -39,6 +39,6 @@
     "exe": "XMPleatedSkirt",
     "module": "pleated_skirt",
     "class": "PleatedSkirtTool",
-    "version": "0.1.0"
+    "version": "0.1.1"
   }
 }
