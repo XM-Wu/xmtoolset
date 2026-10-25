@@ -2,27 +2,27 @@
   "package": {
     "schemaVersion": 1,
     "toolId": "pleated-skirt",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "platform": "win-x64",
-    "packageFile": "pleated-skirt-0.1.0-win-x64.zip",
-    "size": 59192112,
-    "sha256": "93500475742c1eb4fd7bab15b4a4525ea77de6a2c38cf0b4b3059a37246e60bd",
+    "packageFile": "pleated-skirt-0.1.1-win-x64.zip",
+    "size": 59197928,
+    "sha256": "1224361210dcfb6923d5f666eca633285af5ee62ab5376617e6fe85a3cfadf04",
     "entryPoint": "XMPleatedSkirt.exe",
     "minimumLauncherVersion": "0.1.0",
     "runtimeMode": "self-contained",
     "dataSchemaVersion": 1
   },
-  "commit": "935107498ccd25127a1c0c35ed552e50bfb2b020",
-  "path": "artifacts/pleated-skirt/0.1.0/pleated-skirt-0.1.0-win-x64.zip",
+  "commit": "f41f4a04b101c24836a8e3d31ce4a873cf1197bd",
+  "path": "artifacts/pleated-skirt/0.1.1/pleated-skirt-0.1.1-win-x64.zip",
   "baidu": {
-    "fsId": 334087991154463,
-    "path": "/apps/XArchieve/App/pleated-skirt/0.1.0/pleated-skirt-0.1.0-win-x64.zip"
+    "fsId": 573338557487095,
+    "path": "/apps/XArchieve/App/pleated-skirt/0.1.1/pleated-skirt-0.1.1-win-x64.zip"
   },
   "metadata": {
     "name": "\u88D9\u5B50\u683C\u7EB9\u751F\u6210\u5668",
     "description": "\u751F\u6210\u9ED1\u767D\u659C\u7EB9\u4EA4\u7EC7\u7ED3\u6784\uFF0C\u6309\u81EA\u5B9A\u4E49\u7ECF\u7EAC\u8272\u5E26\u89C4\u5219\u751F\u6210\u88D9\u5B50\u683C\u7EB9\u57FA\u7840\u8272\u8D34\u56FE\u3002",
     "category": "small",
-    "releaseNotes": "\u65B0\u589E\u7ECF\u7EAC\u4EA4\u7EC7\u683C\u7EB9\u751F\u6210\uFF0C\u5185\u7F6E9\u6B3E\u9884\u8BBE\uFF0C\u652F\u6301\u65E0\u7F1D\u5E73\u94FA\u3001\u89C4\u5219\u5BFC\u5165\u5BFC\u51FA\u3001PNG/SVG\uFF0C\u4EE5\u53CA\u7F13\u5B58\u7F29\u653E\u9884\u89C8\u3002",
-    "publishedUtc": "2026-10-24T11:39:23.2811499+00:00"
+    "releaseNotes": "\u5171\u4EAB\u53D6\u8272\u5668\u65B0\u589E\u5C4F\u5E55\u53D6\u8272\u3001\u653E\u5927\u9884\u89C8\u53CA Hex \u663E\u793A\uFF0C\u652F\u6301 Esc/\u53F3\u952E\u53D6\u6D88\u5E76\u4FDD\u7559\u5F53\u524D\u900F\u660E\u5EA6\u3002",
+    "publishedUtc": "2026-10-25T04:44:39.9426152+00:00"
   }
 }
