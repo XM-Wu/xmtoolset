@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "toolId": "xm-comic",
+  "version": "0.0.5",
+  "platform": "win-x64",
+  "packageFile": "xm-comic-0.0.5-win-x64.zip",
+  "size": 53703782,
+  "sha256": "f1a9ad2ad89c1a4aac1330cbe6ee8f8dbc2a48d3ee10234b0d6be8ab40f3e4c3",
+  "entryPoint": "XM Comic Library.exe",
+  "minimumLauncherVersion": "0.2.0",
+  "runtimeMode": "self-contained",
+  "dataSchemaVersion": 1
+}

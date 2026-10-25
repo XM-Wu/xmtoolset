@@ -4,11 +4,11 @@
                      "version":  "1.22.0"
                  },
     "xm-comic":  {
-                     "version":  "0.0.4",
+                     "version":  "0.0.5",
                      "exe":  "XM Comic Library.exe"
                  },
     "xm-model":  {
-                     "version":  "0.0.6",
+                     "version":  "0.0.7",
                      "exe":  "XM Model Library.exe"
                  }
 }
