@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "toolId": "xm-model",
+  "version": "0.0.8",
+  "platform": "win-x64",
+  "packageFile": "xm-model-0.0.8-win-x64.zip",
+  "size": 68639531,
+  "sha256": "890874c9fefc5f423dc0af255ac59e4e976716117d697308f94cdaf09ea44035",
+  "entryPoint": "XM Model Library.exe",
+  "minimumLauncherVersion": "0.2.0",
+  "runtimeMode": "self-contained",
+  "dataSchemaVersion": 1
+}

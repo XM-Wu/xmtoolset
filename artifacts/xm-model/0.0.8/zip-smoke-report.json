@@ -1,0 +1,21 @@
+{
+  "success": true,
+  "frozen": true,
+  "version": "0.0.8",
+  "toolId": "xm-model",
+  "checks": [
+    "isolated resource database",
+    "screen picker entry is bundled",
+    "screen picker selection preserves alpha and completes",
+    "screen picker high-DPI coordinate mapping",
+    "SQLite create item",
+    "Qt image codec",
+    "bundled icons and theme",
+    "archive Unicode extraction",
+    "bundled 7-Zip",
+    "OBJ mesh load",
+    "native USD binary load",
+    "model shaders deserialize",
+    "window screenshot"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "success": true,
+  "frozen": true,
+  "version": "0.0.6",
+  "toolId": "xm-comic",
+  "checks": [
+    "isolated resource database",
+    "screen picker entry is bundled",
+    "screen picker selection preserves alpha and completes",
+    "screen picker high-DPI coordinate mapping",
+    "SQLite create item",
+    "Qt image codec",
+    "bundled icons and theme",
+    "archive Unicode extraction",
+    "bundled 7-Zip",
+    "window screenshot"
+  ]
+}
