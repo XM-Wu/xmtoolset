@@ -12,7 +12,7 @@
     "runtimeMode": "self-contained",
     "dataSchemaVersion": 1
   },
-  "commit": "e00cd1c1362c9b87a1df6ec1d8457481a99bb5c3",
+  "commit": "5dbb78df06555267af5370bcd33dd7befc17ae08",
   "path": "artifacts/xarchive/1.22.0/xarchive-1.22.0-win-x64.zip",
   "baidu": {
     "fsId": 250261463789926,
@@ -23,7 +23,7 @@
     "description": "\u76EE\u5F55\u5F52\u6863\u3001\u4E91\u7AEF\u5907\u4EFD\u4E0E\u672C\u5730\u7A7A\u95F4\u7BA1\u7406\u3002",
     "category": "large",
     "releaseNotes": "\u538B\u7F29\u671F\u95F4\u5B9A\u65F6\u663E\u793A\u8FD0\u884C\u65F6\u95F4\u3001\u8F93\u51FA\u91CF\u4E0E CPU \u7528\u65F6\uFF1BBackup \u6309\u76EE\u5F55\u8FB9\u6838\u5BF9\u8FB9\u4E0A\u4F20\uFF0C\u7A7A\u76EE\u5F55\u6700\u540E\u8865\u9F50\uFF0C\u907F\u514D\u957F\u65F6\u95F4\u505C\u5728\u201C\u6574\u7406\u5DEE\u5F02\u201D\u3002",
-    "publishedUtc": "2026-10-27T12:52:14.0527698+00:00",
+    "publishedUtc": "2026-10-27T13:44:58.7225021+00:00",
     "dcc": null,
     "source": null
   }

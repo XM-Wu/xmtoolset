@@ -12,7 +12,7 @@
     "runtimeMode": "self-contained",
     "dataSchemaVersion": 1
   },
-  "commit": "e00cd1c1362c9b87a1df6ec1d8457481a99bb5c3",
+  "commit": "5dbb78df06555267af5370bcd33dd7befc17ae08",
   "path": "artifacts/view-splitter/0.1.0/view-splitter-0.1.0-win-x64.zip",
   "baidu": {
     "fsId": 557237859013821,
@@ -23,7 +23,7 @@
     "description": "\u62D6\u5165 PNG\uFF0C\u8C03\u6574\u5782\u76F4\u5207\u5272\u7EBF\uFF0C\u6309\u539F\u59CB\u5206\u8FA8\u7387\u6279\u91CF\u5BFC\u51FA\u591A\u5F20\u56FE\u7247\u3002",
     "category": "small",
     "releaseNotes": "\u652F\u6301\u9ED8\u8BA4\u4E09\u7B49\u5206\u3001\u81EA\u5B9A\u4E49\u7B49\u5206\u3001\u589E\u5220\u4E0E\u62D6\u52A8\u5207\u5272\u7EBF\u3001\u50CF\u7D20\u5750\u6807\u8F93\u5165\u3001\u64A4\u9500\u548C\u900F\u660E PNG \u5BFC\u51FA\u3002",
-    "publishedUtc": "2026-10-27T12:52:05.713204+00:00",
+    "publishedUtc": "2026-10-27T13:44:50.2880281+00:00",
     "dcc": null,
     "source": null
   }

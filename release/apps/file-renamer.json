@@ -12,7 +12,7 @@
     "runtimeMode": "self-contained",
     "dataSchemaVersion": 1
   },
-  "commit": "e00cd1c1362c9b87a1df6ec1d8457481a99bb5c3",
+  "commit": "5dbb78df06555267af5370bcd33dd7befc17ae08",
   "path": "artifacts/file-renamer/0.1.0/file-renamer-0.1.0-win-x64.zip",
   "baidu": {
     "fsId": 47171673147210,
@@ -23,7 +23,7 @@
     "description": "\u6279\u91CF\u4FEE\u6539\u6587\u4EF6\u6269\u5C55\u540D\uFF0C\u652F\u6301\u9884\u89C8\u3001\u9012\u5F52\u5904\u7406\u548C\u51B2\u7A81\u68C0\u67E5\u3002",
     "category": "small",
     "releaseNotes": "\u65B0\u589E\u6587\u4EF6\u6539\u540D\u5DE5\u5177\uFF0C\u6539\u540D\u524D\u9884\u89C8\u76EE\u6807\u540D\u79F0\uFF0C\u51B2\u7A81\u963B\u6B62\u6267\u884C\uFF0C\u5931\u8D25\u65F6\u5C1D\u8BD5\u6062\u590D\u3002",
-    "publishedUtc": "2026-10-27T12:52:07.9763925+00:00",
+    "publishedUtc": "2026-10-27T13:44:52.6459025+00:00",
     "dcc": null,
     "source": null
   }
