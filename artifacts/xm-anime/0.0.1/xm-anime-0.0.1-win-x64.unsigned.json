@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "toolId": "xm-anime",
+  "version": "0.0.1",
+  "platform": "win-x64",
+  "packageFile": "xm-anime-0.0.1-win-x64.zip",
+  "size": 53088418,
+  "sha256": "94f6774704747de17ca71150d97036f9d917a5e780239cd3030382f1f893a086",
+  "entryPoint": "XM Anime Schedule.exe",
+  "minimumLauncherVersion": "0.2.0",
+  "runtimeMode": "self-contained",
+  "dataSchemaVersion": 1
+}

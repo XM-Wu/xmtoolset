@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "frozen": true,
+  "version": "0.0.1",
+  "toolId": "xm-anime",
+  "checks": [
+    "isolated data and settings",
+    "SQLite tracking and score",
+    "Unicode tags round trip",
+    "bundled icon and both themes",
+    "search excludes unmatched entries",
+    "search finds fixture",
+    "rendered window and inspector",
+    "tracking persists after reopen"
+  ]
+}

@@ -68,3 +68,10 @@ artifacts/pleated-skirt/**
 !artifacts/pleated-skirt/*/
 !artifacts/pleated-skirt/*/*.json
 !artifacts/pleated-skirt/*/*.png
+
+# Anime schedule release diagnostics; ZIPs remain in cloud storage.
+!artifacts/xm-anime/
+artifacts/xm-anime/**
+!artifacts/xm-anime/*/
+!artifacts/xm-anime/*/*.json
+!artifacts/xm-anime/*/*.png
