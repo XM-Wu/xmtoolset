@@ -2,28 +2,28 @@
   "package": {
     "schemaVersion": 1,
     "toolId": "xm-comic",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "platform": "win-x64",
-    "packageFile": "xm-comic-0.0.6-win-x64.zip",
-    "size": 54121639,
-    "sha256": "2022058d940aec1cc19151a5171de39d592a1df786fca09a0ea94fdc9e432667",
+    "packageFile": "xm-comic-0.0.7-win-x64.zip",
+    "size": 54139580,
+    "sha256": "eecd7c60b71b5b470230f6f3a3508d8b9defa65a4b8985e087b157bff5037765",
     "entryPoint": "XM Comic Library.exe",
     "minimumLauncherVersion": "0.2.0",
     "runtimeMode": "self-contained",
     "dataSchemaVersion": 1
   },
-  "commit": "5dbb78df06555267af5370bcd33dd7befc17ae08",
-  "path": "artifacts/xm-comic/0.0.6/xm-comic-0.0.6-win-x64.zip",
+  "commit": "90d92d54073c74fe5fb86cd886ef7beea2de4ca4",
+  "path": "artifacts/xm-comic/0.0.7/xm-comic-0.0.7-win-x64.zip",
   "baidu": {
-    "fsId": 679161086736849,
-    "path": "/apps/XArchieve/App/xm-comic/0.0.6/xm-comic-0.0.6-win-x64.zip"
+    "fsId": 1068926090251108,
+    "path": "/apps/XArchieve/App/xm-comic/0.0.7/xm-comic-0.0.7-win-x64.zip"
   },
   "metadata": {
     "name": "XM \u6F2B\u753B\u67E5\u770B\u5668",
     "description": "\u7BA1\u7406\u6F2B\u753B\u8D44\u6E90\u5E93\uFF0C\u6D4F\u89C8\u5C01\u9762\u4E0E\u9605\u8BFB\u56FE\u7247\u3002",
     "category": "large",
-    "releaseNotes": "\u66F4\u65B0\u6700\u65B0\u754C\u9762\u3001\u5E94\u7528\u56FE\u6807\u4E0E\u5171\u4EAB\u63A7\u4EF6\uFF0C\u5305\u542B\u5217\u8868\u4E0E\u542F\u52A8\u6027\u80FD\u4F18\u5316\u3001\u5E73\u6ED1\u6EDA\u52A8\u548C\u7B5B\u9009\u72B6\u6001\u8BB0\u5FC6\u3002",
-    "publishedUtc": "2026-10-27T13:45:24.257023+00:00",
+    "releaseNotes": "\u65B0\u589E\u957F\u7BC7\u4E0E\u5206\u96C6\u7BA1\u7406\uFF1A\u73B0\u6709\u8D44\u6E90\u53CA\u65B0\u5BFC\u5165\u9ED8\u8BA4\u77ED\u7BC7\uFF1B\u591A\u9009\u5408\u5E76\u65F6\u6C47\u603B\u4F5C\u8005\u548C\u6807\u7B7E\uFF0C\u53EF\u9009\u540D\u79F0\u5E76\u4FEE\u6539\uFF1B\u652F\u6301\u62D6\u5165\u957F\u7BC7\u3001\u79FB\u51FA\u4E3A\u77ED\u7BC7\u3001\u8BBE\u7F6E\u7B2Cn\u8BDD\u6216\u7279\u522B\u7BC7n\uFF0C\u4EE5\u53CA\u6301\u4E45\u5316\u64A4\u9500\u3002\u56FE\u7247\u6587\u4EF6\u4FDD\u7559\u539F\u76EE\u5F55\u3002",
+    "publishedUtc": "2026-10-28T13:34:15.7947758+00:00",
     "dcc": null,
     "source": null
   }
