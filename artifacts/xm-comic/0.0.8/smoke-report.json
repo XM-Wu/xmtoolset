@@ -1,0 +1,25 @@
+{
+  "success": true,
+  "frozen": true,
+  "version": "0.0.8",
+  "toolId": "xm-comic",
+  "checks": [
+    "isolated resource database",
+    "screen picker entry is bundled",
+    "screen picker selection preserves alpha and completes",
+    "screen picker high-DPI coordinate mapping",
+    "SQLite create item",
+    "series merge combines tags",
+    "series dialog and chapter editor bundled",
+    "episode detach",
+    "persistent structural undo",
+    "persistent structural undo",
+    "persistent structural undo",
+    "merge undo restores original shorts",
+    "Qt image codec",
+    "bundled icons and theme",
+    "archive Unicode extraction",
+    "bundled 7-Zip",
+    "window screenshot"
+  ]
+}
