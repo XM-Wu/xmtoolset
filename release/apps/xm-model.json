@@ -12,7 +12,7 @@
     "runtimeMode": "self-contained",
     "dataSchemaVersion": 1
   },
-  "commit": "90d92d54073c74fe5fb86cd886ef7beea2de4ca4",
+  "commit": "59df9b75bd7ebba841ea25073aec2d3e61be2286",
   "path": "artifacts/xm-model/0.0.8/xm-model-0.0.8-win-x64.zip",
   "baidu": {
     "fsId": 1116451350753475,
@@ -23,7 +23,7 @@
     "description": "\u7BA1\u7406\u4E0E\u9884\u89C8\u4E09\u7EF4\u6A21\u578B\uFF0C\u652F\u6301 OBJ \u548C USD\u3002",
     "category": "large",
     "releaseNotes": "\u66F4\u65B0\u6700\u65B0\u754C\u9762\u3001\u5E94\u7528\u56FE\u6807\u4E0E\u5171\u4EAB\u63A7\u4EF6\uFF0C\u5305\u542B\u5217\u8868\u4E0E\u542F\u52A8\u6027\u80FD\u4F18\u5316\u3001\u5E73\u6ED1\u6EDA\u52A8\u548C\u7B5B\u9009\u72B6\u6001\u8BB0\u5FC6\u3002",
-    "publishedUtc": "2026-10-28T13:34:18.1401474+00:00",
+    "publishedUtc": "2026-10-29T01:25:36.6236553+00:00",
     "dcc": null,
     "source": null
   }

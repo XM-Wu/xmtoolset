@@ -2,28 +2,28 @@
   "package": {
     "schemaVersion": 1,
     "toolId": "xm-comic",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "platform": "win-x64",
-    "packageFile": "xm-comic-0.0.7-win-x64.zip",
-    "size": 54139580,
-    "sha256": "eecd7c60b71b5b470230f6f3a3508d8b9defa65a4b8985e087b157bff5037765",
+    "packageFile": "xm-comic-0.0.8-win-x64.zip",
+    "size": 54162781,
+    "sha256": "9a701430eeddbbb2d7de11e7eb672a584d591bdca784c2ce683ee21ec782725b",
     "entryPoint": "XM Comic Library.exe",
     "minimumLauncherVersion": "0.2.0",
     "runtimeMode": "self-contained",
     "dataSchemaVersion": 1
   },
-  "commit": "90d92d54073c74fe5fb86cd886ef7beea2de4ca4",
-  "path": "artifacts/xm-comic/0.0.7/xm-comic-0.0.7-win-x64.zip",
+  "commit": "59df9b75bd7ebba841ea25073aec2d3e61be2286",
+  "path": "artifacts/xm-comic/0.0.8/xm-comic-0.0.8-win-x64.zip",
   "baidu": {
-    "fsId": 1068926090251108,
-    "path": "/apps/XArchieve/App/xm-comic/0.0.7/xm-comic-0.0.7-win-x64.zip"
+    "fsId": 221108403130660,
+    "path": "/apps/XArchieve/App/xm-comic/0.0.8/xm-comic-0.0.8-win-x64.zip"
   },
   "metadata": {
     "name": "XM \u6F2B\u753B\u67E5\u770B\u5668",
     "description": "\u7BA1\u7406\u6F2B\u753B\u8D44\u6E90\u5E93\uFF0C\u6D4F\u89C8\u5C01\u9762\u4E0E\u9605\u8BFB\u56FE\u7247\u3002",
     "category": "large",
-    "releaseNotes": "\u65B0\u589E\u957F\u7BC7\u4E0E\u5206\u96C6\u7BA1\u7406\uFF1A\u73B0\u6709\u8D44\u6E90\u53CA\u65B0\u5BFC\u5165\u9ED8\u8BA4\u77ED\u7BC7\uFF1B\u591A\u9009\u5408\u5E76\u65F6\u6C47\u603B\u4F5C\u8005\u548C\u6807\u7B7E\uFF0C\u53EF\u9009\u540D\u79F0\u5E76\u4FEE\u6539\uFF1B\u652F\u6301\u62D6\u5165\u957F\u7BC7\u3001\u79FB\u51FA\u4E3A\u77ED\u7BC7\u3001\u8BBE\u7F6E\u7B2Cn\u8BDD\u6216\u7279\u522B\u7BC7n\uFF0C\u4EE5\u53CA\u6301\u4E45\u5316\u64A4\u9500\u3002\u56FE\u7247\u6587\u4EF6\u4FDD\u7559\u539F\u76EE\u5F55\u3002",
-    "publishedUtc": "2026-10-28T13:34:15.7947758+00:00",
+    "releaseNotes": "\u65B0\u589E\u5408\u96C6\u4E0E\u5361\u7247\u5F0F\u5206\u96C6\u9875\u9762\u3001\u72EC\u7ACB\u5BFC\u5165\u548C\u591A\u9009\u6279\u91CF\u64CD\u4F5C\uFF1B\u5408\u96C6\u6807\u7B7E\u53EA\u8BFB\u6C47\u603B\u5E76\u663E\u793A\u7279\u6B8A\u6807\u7B7E\uFF1B\u65B0\u589E\u53F3\u4E0A\u89D2\u7C7B\u578B\u6807\u8BC6\u3002\u4FEE\u590D\u8BDD\u6570\u8BBE\u7F6E\u3001\u521B\u5EFA\u5408\u96C6\u5361\u987F\u3001\u6B8B\u7559\u8FB9\u6846\u3001\u5408\u96C6\u6807\u8BC6\u4E22\u5931\u548C\u5C01\u9762\u7F13\u5B58\u51B2\u7A81\uFF0C\u5408\u96C6\u4E0D\u518D\u751F\u6210\u7A7A\u76EE\u5F55\u3002",
+    "publishedUtc": "2026-10-29T01:25:34.1417509+00:00",
     "dcc": null,
     "source": null
   }

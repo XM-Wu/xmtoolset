@@ -12,7 +12,7 @@
     "runtimeMode": "self-contained",
     "dataSchemaVersion": 1
   },
-  "commit": "90d92d54073c74fe5fb86cd886ef7beea2de4ca4",
+  "commit": "59df9b75bd7ebba841ea25073aec2d3e61be2286",
   "path": "artifacts/xm-anime/0.0.1/xm-anime-0.0.1-win-x64.zip",
   "baidu": {
     "fsId": 153349432767648,
@@ -23,7 +23,7 @@
     "description": "\u7BA1\u7406\u8FFD\u756A\u8BA1\u5212\u3001\u89C2\u770B\u8FDB\u5EA6\u4E0E\u8BC4\u5206\uFF0C\u6309\u5B63\u5EA6\u6216\u6BCF\u5468\u65F6\u95F4\u8868\u6D4F\u89C8\u756A\u5267\u3002",
     "category": "large",
     "releaseNotes": "\u9996\u6B21\u63A5\u5165 Launcher\uFF0C\u652F\u6301\u5B89\u88C5\u3001\u542F\u52A8\u3001\u66F4\u65B0\u548C\u5378\u8F7D\uFF1B\u5305\u542B\u756A\u5267\u68C0\u7D22\u3001\u6807\u7B7E\u7B5B\u9009\u3001\u8FFD\u756A\u8FDB\u5EA6\u4E0E\u8BC4\u5206\u7BA1\u7406\u3002",
-    "publishedUtc": "2026-10-28T13:34:21.5901114+00:00",
+    "publishedUtc": "2026-10-29T01:25:39.668583+00:00",
     "dcc": null,
     "source": null
   }

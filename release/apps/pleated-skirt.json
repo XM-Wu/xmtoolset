@@ -12,7 +12,7 @@
     "runtimeMode": "self-contained",
     "dataSchemaVersion": 1
   },
-  "commit": "90d92d54073c74fe5fb86cd886ef7beea2de4ca4",
+  "commit": "59df9b75bd7ebba841ea25073aec2d3e61be2286",
   "path": "artifacts/pleated-skirt/0.1.1/pleated-skirt-0.1.1-win-x64.zip",
   "baidu": {
     "fsId": 573338557487095,
@@ -23,7 +23,7 @@
     "description": "\u751F\u6210\u9ED1\u767D\u659C\u7EB9\u4EA4\u7EC7\u7ED3\u6784\uFF0C\u6309\u81EA\u5B9A\u4E49\u7ECF\u7EAC\u8272\u5E26\u89C4\u5219\u751F\u6210\u88D9\u5B50\u683C\u7EB9\u57FA\u7840\u8272\u8D34\u56FE\u3002",
     "category": "small",
     "releaseNotes": "\u5171\u4EAB\u53D6\u8272\u5668\u65B0\u589E\u5C4F\u5E55\u53D6\u8272\u3001\u653E\u5927\u9884\u89C8\u53CA Hex \u663E\u793A\uFF0C\u652F\u6301 Esc/\u53F3\u952E\u53D6\u6D88\u5E76\u4FDD\u7559\u5F53\u524D\u900F\u660E\u5EA6\u3002",
-    "publishedUtc": "2026-10-28T13:33:47.6566536+00:00",
+    "publishedUtc": "2026-10-29T01:25:05.940181+00:00",
     "dcc": null,
     "source": null
   }
